@@ -2,23 +2,7 @@
 
 对 Meshy T2 API 批量生成的 GLB 模型做自动化几何质检：
 
-**批量生成 → Blender headless 渲染（lookdev 展示场景）→ 双引擎几何指标（bpy 原生 + trimesh 复核）→
-v2 检测管线：一切服务「不应该存在的组件」检出——视觉岛层悬浮检出 + 共位双证据检出 + 面积重叠率分型，
-只检出不删除 → 分析报告（单文件 HTML）+ 交付目录（确定通过 / 确定不通过 / 待人工裁决）+ 本地审核台 +
-离线只读快照。**
-
-需求与交付的对应：① 用 API 生成约 20 个模型（prompt 自己设计，见 `prompts.jsonl`）
-② Blender 批量渲染成图 ③ 评估这批模型 ④ 挑一个最值得自动检测的问题写检测脚本
-（选的是"不应该存在的组件"，论据见 `.claude/memory/note-findings-contract-semantics.md` 与
-`publish/2026-09-22/交付说明.md`）。
 **交付物 = 代码（本仓库）+ 模型及渲染图与交付说明（都在 `publish/<日期>/` 快照内）。**
-
-渲染层（PLAN-02）：三点光棚拍场景（暖主光/冷轮廓光/中性补光 + 渐变背景 + 接地阴影），三通道出图
-（平滑 / 缺陷着色 / 线壳线框）。**组件定位**（PLAN-07）：每条待复核检出一张「定位图」——半透明灰底
-给出整机上下文，组件与其重叠邻居分色，重合的那一片单独一色；另有逐组件的独立渲染三视图给出该组件
-的外观。
-
-**踩过的坑（动手前先查）**：`.claude/memory/_index.md`（现实 bug 库与设计备忘的索引）。
 
 ## 目录导览
 
@@ -32,8 +16,7 @@ v2 检测管线：一切服务「不应该存在的组件」检出——视觉�
 
 ## 怎么跑起来（概览）
 
-完整步骤与数据包说明见 **[`publish/2026-09-22/交付说明.md`](publish/2026-09-22/交付说明.md) 第五节**，
-这里只给最短路径：
+完整步骤与数据包说明见 **[`publish/2026-09-22/交付说明.md`](publish/2026-09-22/交付说明.md) 第五节**，这里只给最短路径：
 
 ```bash
 uv sync                                  # 还原虚拟环境（python 3.12）
@@ -56,9 +39,7 @@ python -m meshq.pipeline generate --dry-run
 python -m meshq.stages.generate --all --preset smart-topology
 ```
 
-数据产物在 `data/`（不入库）；原始模型自动备份到 `[backup] dir`（`config.toml`），
-代码有 bug 时直接复用本地模型重跑分析，不重复消耗 credit。**只有 `render` 阶段需要 Blender**
-（`config.toml` 的 `[blender] path`），其余步骤纯 Python。
+数据产物在 `data/`（不入库）；原始模型自动备份到 `[backup] dir`（`config.toml`），代码有 bug 时直接复用本地模型重跑分析，不重复消耗 credit。**只有 `render` 阶段需要 Blender**（`config.toml` 的 `[blender] path`），其余步骤纯 Python。
 
 ## 代码结构
 
@@ -99,12 +80,12 @@ tests/                 镜像 meshq/ 结构（纯逻辑全覆盖；bpy 与网络
 **依赖方向单向**：`meshq/blender/*` 与 `meshq/stages/*` 都可以 import `meshq/core/*`，反之不行
 （`blender/` 层只在 Blender 内置 Python 里运行）。
 
-**约定**：脚本内禁止硬编码路径与阈值（一律进 `config.toml`，先改 `config.example.toml` 再改加载器）；
-每个功能模块在 `tests/` 有对应测试；现实 bug 修复当天录入 `.claude/memory/`；
-渲染/交付层改动**先渲一个样本看一眼再批量**（该层的故障几乎不是单测能拦住的，
-自查清单见 `.claude/memory/note-render-delivery-checklist.md`）。
+完整流程：**批量生成 → Blender headless 渲染（lookdev 展示场景）→ 双引擎几何指标（bpy 原生 + trimesh 复核）→
+v2 检测管线：一切服务「不应该存在的组件」检出——视觉岛层悬浮检出 + 共位双证据检出 + 面积重叠率分型，
+只检出不删除 → 分析报告（单文件 HTML）+ 交付目录（确定通过 / 确定不通过 / 待人工裁决）+ 本地审核台 +
+离线只读快照。**
 
-## 当前检测与交付架构（v2，PLAN-04/05）
+## 当前检测与交付架构
 
 - **检测**：`meshq/stages/detect.py` 是薄编排，检测关节注册在 `meshq/core/detectors.py`，结果统一落
   `data/findings.jsonl`（契约见 `meshq/core/findings.py`）。两类核心缺陷（悬浮 / 重叠共面）逐条带证据与
@@ -135,12 +116,7 @@ python -m meshq.stages.deliver --date <日期> --out publish --snapshot
 
 ## 结果速览（standard 对照批，21 个模型）
 
-> **本节是 historical baseline**：口径为 standard 批（`meshy-7`）与级联判别时代，
-> 数字与结论保留作对照，**不代表当前 T2 交付口径**。当前口径见 `publish/2026-09-22/` 与交付说明。
-
 **漏斗：15 直接入库 / 5 修复后入库 / 1 拒绝。成本 405 credits**
-（standard 批 20 件 = 20 × 20 = 400，另 5 为一个 smart-topology 对照件；T2 批成本见交付说明）。
-**该批的删减式修复路径已从代码库移除**——当前管线只检出不删除，修复结果作为冻结件留在 `data/fixed/`。
 
 | 任务书四问 | 结论 |
 |---|---|
@@ -155,9 +131,8 @@ python -m meshq.stages.deliver --date <日期> --out publish --snapshot
 - **p18 吊灯**：24 个组件中 4 个碎屑（23,440 面）被删，**20 个垂挂水晶真部件全部保留**——相对阈值（主组件对角线 10%）跨类别免调参的直接证据
 - **p06 球鞋**："一双鞋"两只等大部件（对角线比 0.92）安全通过阈值，仅清除 2 处微碎屑
 - **p12 手柄**：一个 65,848 面的密集部件与主体仅轻微接触——trimesh（1e-5 焊接）判分离、Blender（1e-4）判连通。**双引擎冲突 → 拒绝档转人工**，而非冒险自动删除
-- **p01 smart-topology 对照**：便宜 4 倍（5 vs 20 credits）但 11 个组件、6 条真非流形边 + 33 条开放边界、515 个自交面——几何脏得多，全量批次因此选 standard 档
 
-### 已知边界（诚实声明）
+### 已知边界
 
 - 高亮图以 Blender 引擎的检出为准：仅接触式连接（焊接后合流）的部件，Blender 侧不可见，如 p12；空间分离的碎片（主流 floaters 形态）两引擎一致
 - 定位图的整机面板对极小件偏弱（组件可小到模型对角线 0.4%）：标记环保证"找得到"，但环内可能只有几像素；该件的实际形态以**逐组件独立渲染**（三视图隔离渲染）为准
