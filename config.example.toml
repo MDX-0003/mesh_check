@@ -1,0 +1,121 @@
+# ============================================================
+# 设备相关配置模板
+# 用法：复制为 config.toml 后填写。config.toml 含 API key，
+#       已被 .gitignore 排除，任何情况下不得提交。
+# 加载：meshq/core/common.py（tomllib）；脚本内禁止硬编码下列任何值。
+# ============================================================
+
+[blender]
+# Blender 可执行文件**全路径**（headless 渲染与 bpy 原生几何检查用）。
+#   本项目实测版本：便携版 5.0.1（官网 zip 解压即用，无需安装）；4.2+ 预期可用但未实测。
+#   Windows 例：'C:/Program Files/Blender Foundation/Blender 5.0/blender.exe'
+#   macOS  例：'/Applications/Blender.app/Contents/MacOS/Blender'
+#   Linux  例：'/opt/blender-5.0.1-linux-x64/blender'
+# 只有"渲染 / 重渲"需要它；分析、报告与交付重建都不需要。
+# 缺它或路径写错时，render 阶段会直接报「blender 可执行文件不存在」而不是静默跳过。
+path = ''
+
+[meshy]
+# Meshy API Key。留空则回退环境变量 MESHY_API_KEY
+api_key = ''
+
+[poll]
+# 生成任务轮询（GET /openapi/v2/text-to-3d/{id}）
+interval_seconds = 10
+timeout_seconds = 900
+
+[detect]
+# 悬浮组件判定阈值（相对主组件的比例，见 PLAN-00 D2）
+diag_ratio = 0.10        # 非主组件 bbox 对角线 / 主组件 bbox 对角线
+vol_ratio = 0.01         # 非主组件 bbox 体积 / 主组件 bbox 体积（复核条件）
+frag_reject_ratio = 0.05 # 碎片总面数占比超过此值 → 拒绝档
+
+[render]
+resolution = [1280, 960]
+timeout_seconds = 900    # 单模型 Blender 进程超时（线壳通道与百万面焊接后 p18 实测 ~8min）
+
+[render.lookdev]
+# 展示场景（PLAN-02 §2.1）：渐变背景 + 暖主光/冷轮廓光/中性补光 + 地平面。
+# 色值一律 #RRGGBB（sRGB），渲染端转线性空间。
+background_mode = "gradient"    # "gradient" 上浅下深渐变 | "solid" 单色
+bg_gradient_top = '#B8BDC4'
+bg_gradient_bottom = '#5A6068'
+bg_solid_color = '#3C4048'      # solid 模式背景色；亦作对比图画布底色
+key_energy = 500.0              # 暖主光（AREA）功率 W
+key_color = '#FFE0B8'
+key_azimuth = -40.0             # 方位角（度，0=正前 -Y，负值=画幅左侧）
+key_elevation = 35.0            # 仰角（度）
+rim_energy = 350.0              # 冷轮廓光（AREA）功率 W
+rim_color = '#B8D1FF'
+fill_energy = 120.0             # 中性补光（AREA）功率 W
+ground_plane = true             # 深灰漫反射地平面（接触阴影）
+view_transform = 'AgX'          # base/wire 通道观变换
+highlight_view_transform = 'Standard'
+highlight_light_scale = 0.35  # highlight 通道观变换（保红色饱和度，PLAN-02 D3）
+emission_strength = 0.4        # 自发光强度（过高会在 Standard 下过曝成白）
+wire_thickness = 0.002          # 线壳几何厚度（归一化 bbox 最长边=1 的相对值）
+wire_color = '#141417'
+wire_display_faces = 20000      # 线框显示密度阈值：超过则对降采样副本画线框
+wire_ssaa = 1                   # 线框通道超采样倍数（1=关；2=2x 渲染后 Pillow 降回）
+
+[parts]
+# 部件/伪影判别（PLAN-03 §4/§5）参数：特征提取与分档阈值。
+# 判据轴定义与实测依据见 src/part_features.py、src/part_verdict.py 的模块头。
+weld_digits = 5              # trimesh 焊接量化位数；bpy 侧是 1e-4 邻近合并，两者不同源（勿互相模拟）
+iso_ratio = 0.05             # 疏离阈值：到最近几何的距离 / 主组件 bbox 对角线
+diag_ratio_big = 0.30        # B 档“尺寸量级相当”下限：组件对角线 / 主组件对角线
+group_min_siblings = 2       # B 档“成群”下限：同尺寸同类件数（>=2 视为一组，即组内 >=3 件）
+min_faces = 24               # A1 形态极低的面数下限
+solid_min_faces = 24         # “实体”（水密+欧拉数 2）判定的面数下限
+volume_eps = 1e-06           # A1 的“bbox 体积≈0”阈值（占主组件 bbox 体积的比例）
+sibling_cluster_ratio = 1.25 # 同尺寸同类的一维聚类比（与簇首比较，避免链式合并）
+contact_tol = 0.005          # 接触判据容差（相对主组件对角线），用于 contact_frac
+bbox_pin_tol = 0.01          # 包围盒贴片判定容差（相对主组件对角线）
+sample_points = 600          # 每组件邻近查询的顶点采样数
+enable_a0 = true             # A0 真实性门：双引擎一致 + 非包围盒贴片
+require_bpy_agreement = true # A0 中“必须在 bpy 划分下也存在”这一条
+enable_a1 = false            # A1 形态极低入口：样本已被复核推翻，默认降级为待审（PLAN-03 §5.3）
+
+# ---- 岛层（悬浮检出，PLAN-04 层 1）----
+island_eps_ratio = 0.03        # 视觉岛聚类 ε（相对模型对角线，固定 3%；42 模型平台区验证）
+island_query_points = 3000     # 每组件参与最小距离查询的顶点采样上限（确定性 linspace）
+island_surface_samples = 2000  # 每组件表面加密采样点数（R2 序列重心坐标，无 RNG）
+
+# ---- 共位分型（界面贴合 vs 真重叠，2026-09-22；判定标准见交付说明第三节的共位分型）----
+coloc_overlap_tol = 0.001      # 面积重合计数容差（相对模型对角线；= 渲染深度精度量级）
+coloc_true = 0.6               # 面积重叠率 ≥ 此值 → 重叠型共位（z-fighting 候选；任何界面形态最高约 0.5）
+coloc_partial = 0.2            # ≥ 此值 → 部分重叠（灰区目检）；低于 → 界面贴合（非缺陷；立方体叠立方体的界面 = 1/6 ≈ 0.167）
+coloc_surface_samples = 1500   # 面积加权表面采样点数（统计涨落 ~±1.3%）
+
+# 单件图证（明细页"图证"条带）的观感。与整机 lookdev 分开——
+# 它只回答"这一块组件是什么形状"，故不铺地面、用纯色背景，避免地面与渐变干扰轮廓。
+# 调完跑：python src/pipeline.py render --pieces-only --parts-view --keys <模型>
+[render.lookdev.pieces]
+background_color = "#FFFFFF"   # 纯色背景（纯白；想要更强对比可换 #F2F2F2 / #2C3440 等）
+ground_plane = false           # 不铺地面
+light_scale = 1.0              # 在 highlight_light_scale 之上再乘的灯光倍率
+wire_thickness_scale = 3.0     # 线壳加粗倍率（单件画幅被组件填满，需更粗才可见）
+
+# 逐检出定位图（PLAN-07）：半透明灰底 + 三色布尔拆分。
+# 改完只需重渲定位图：python src/pipeline.py render --target locator --keys <模型> --force
+[render.lookdev.locator]
+background_color = "#FFFFFF"   # 场景底色（纯色）
+light_scale = 0.35             # 灯光倍率（Standard 观变换下防过曝）
+ghost_color = "#6B7280"        # 灰底幽灵（白底上要够深才看得见轮廓）
+ghost_alpha = 0.5              # 幽灵不透明度
+color_only_a = "#FF9E1A"       # 该组件独有的面（琥珀）
+color_shared = "#E040A0"       # 两件共用的面（品红）——重叠的就是这一片
+color_only_b = "#2FB4C9"       # 邻居独有的面（青）
+emission_strength = 0.4        # 自发光强度（过高会在 Standard 下过曝成白）
+distance = 2.5                 # 眼位距离（归一化坐标系）
+fit = "a"                      # a=取景跟随组件本身 / pair=两件 / model=整机
+                              # （邻居常远大于组件，pair 取景下薄片仍只有几像素）
+margin = 1.8                   # fit=pair 时的边距倍率
+zoom = 1.0                     # 仅 fit=model 时有意义
+offset_ratio = 0.002           # A/B 沿法线反向微偏量（相对对角线）
+tol_ratio = 0.001              # 三色拆分的判共位容差（= coloc_overlap_tol）
+
+[backup]
+# 原始模型备份目录（批处理结束自动备份 data/raw + tasks.json）。留空 = data/backup。
+# 建议设到仓库外：即使误删 data/，用 credit 换来的模型也不丢。
+dir = ''

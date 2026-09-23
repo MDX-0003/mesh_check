@@ -1,0 +1,370 @@
+{
+ "source": "model.glb",
+ "n_verts": 8114,
+ "n_faces": 16027,
+ "boundary_edges": 64,
+ "non_manifold_edges": 3,
+ "self_intersect_faces": 1414,
+ "zero_area_faces": 0,
+ "zero_length_edges": 0,
+ "n_pieces": 42,
+ "n_small_pieces": 0,
+ "fragment_face_ratio": 0.0,
+ "pieces": [
+  {
+   "n_verts": 1030,
+   "n_faces": 2056,
+   "diag": 0.5515229121798131,
+   "volume": 0.03214745316654444,
+   "diag_ratio_to_main": 1.0,
+   "is_small": false
+  },
+  {
+   "n_verts": 311,
+   "n_faces": 618,
+   "diag": 0.529503700978256,
+   "volume": 0.024851869442500174,
+   "diag_ratio_to_main": 0.9600756184098874,
+   "is_small": false
+  },
+  {
+   "n_verts": 261,
+   "n_faces": 518,
+   "diag": 0.4497413342592194,
+   "volume": 0.01121271252486622,
+   "diag_ratio_to_main": 0.8154535819403822,
+   "is_small": false
+  },
+  {
+   "n_verts": 260,
+   "n_faces": 516,
+   "diag": 0.45660205805465487,
+   "volume": 0.015260978776495904,
+   "diag_ratio_to_main": 0.827893180810934,
+   "is_small": false
+  },
+  {
+   "n_verts": 257,
+   "n_faces": 510,
+   "diag": 0.443958046323963,
+   "volume": 0.01609370985534042,
+   "diag_ratio_to_main": 0.8049675480739036,
+   "is_small": false
+  },
+  {
+   "n_verts": 254,
+   "n_faces": 504,
+   "diag": 0.5152388231954532,
+   "volume": 0.025288337667007,
+   "diag_ratio_to_main": 0.9342110940759426,
+   "is_small": false
+  },
+  {
+   "n_verts": 253,
+   "n_faces": 502,
+   "diag": 0.43148007147095235,
+   "volume": 0.01400659282808192,
+   "diag_ratio_to_main": 0.7823429669777289,
+   "is_small": false
+  },
+  {
+   "n_verts": 253,
+   "n_faces": 502,
+   "diag": 0.4373233983686926,
+   "volume": 0.015637429431080818,
+   "diag_ratio_to_main": 0.7929378611674287,
+   "is_small": false
+  },
+  {
+   "n_verts": 250,
+   "n_faces": 496,
+   "diag": 0.4408347557179532,
+   "volume": 0.013140905066393316,
+   "diag_ratio_to_main": 0.7993045184208554,
+   "is_small": false
+  },
+  {
+   "n_verts": 249,
+   "n_faces": 494,
+   "diag": 0.45174769609984783,
+   "volume": 0.014575188855815213,
+   "diag_ratio_to_main": 0.8190914395820503,
+   "is_small": false
+  },
+  {
+   "n_verts": 239,
+   "n_faces": 474,
+   "diag": 0.45731103924127886,
+   "volume": 0.017926722764968872,
+   "diag_ratio_to_main": 0.8291786780603988,
+   "is_small": false
+  },
+  {
+   "n_verts": 236,
+   "n_faces": 468,
+   "diag": 0.5115583474160228,
+   "volume": 0.021276270446833223,
+   "diag_ratio_to_main": 0.9275377978299465,
+   "is_small": false
+  },
+  {
+   "n_verts": 232,
+   "n_faces": 460,
+   "diag": 0.4903096790913335,
+   "volume": 0.02180672403483186,
+   "diag_ratio_to_main": 0.8890105347635635,
+   "is_small": false
+  },
+  {
+   "n_verts": 231,
+   "n_faces": 458,
+   "diag": 0.5136628240796005,
+   "volume": 0.025299936532974243,
+   "diag_ratio_to_main": 0.9313535534714665,
+   "is_small": false
+  },
+  {
+   "n_verts": 229,
+   "n_faces": 454,
+   "diag": 0.3849861558679233,
+   "volume": 0.008502708747982979,
+   "diag_ratio_to_main": 0.698041998556909,
+   "is_small": false
+  },
+  {
+   "n_verts": 230,
+   "n_faces": 450,
+   "diag": 0.18972798691533543,
+   "volume": 0.0006529995298478752,
+   "diag_ratio_to_main": 0.3440074432546483,
+   "is_small": false
+  },
+  {
+   "n_verts": 223,
+   "n_faces": 442,
+   "diag": 0.4193822187550009,
+   "volume": 0.01044839434325695,
+   "diag_ratio_to_main": 0.7604076086294483,
+   "is_small": false
+  },
+  {
+   "n_verts": 221,
+   "n_faces": 438,
+   "diag": 0.44593847348187804,
+   "volume": 0.01681382954120636,
+   "diag_ratio_to_main": 0.8085583819525682,
+   "is_small": false
+  },
+  {
+   "n_verts": 201,
+   "n_faces": 398,
+   "diag": 0.27492668762287437,
+   "volume": 0.0028584862739080563,
+   "diag_ratio_to_main": 0.49848643012176436,
+   "is_small": false
+  },
+  {
+   "n_verts": 154,
+   "n_faces": 304,
+   "diag": 0.14700798864638395,
+   "volume": 0.0003176330210408196,
+   "diag_ratio_to_main": 0.26654919569045016,
+   "is_small": false
+  },
+  {
+   "n_verts": 138,
+   "n_faces": 272,
+   "diag": 0.12814256559311216,
+   "volume": 0.00021050465511507355,
+   "diag_ratio_to_main": 0.23234314071676104,
+   "is_small": false
+  },
+  {
+   "n_verts": 135,
+   "n_faces": 266,
+   "diag": 0.170820163785188,
+   "volume": 0.0006566099909832701,
+   "diag_ratio_to_main": 0.30972451010248414,
+   "is_small": false
+  },
+  {
+   "n_verts": 134,
+   "n_faces": 264,
+   "diag": 0.1418528464746055,
+   "volume": 0.0003254821785958484,
+   "diag_ratio_to_main": 0.2572020914125816,
+   "is_small": false
+  },
+  {
+   "n_verts": 130,
+   "n_faces": 256,
+   "diag": 0.3720087531745604,
+   "volume": 0.0076261848946046484,
+   "diag_ratio_to_main": 0.6745118742288522,
+   "is_small": false
+  },
+  {
+   "n_verts": 127,
+   "n_faces": 250,
+   "diag": 0.47083976872394856,
+   "volume": 0.0026871277145801287,
+   "diag_ratio_to_main": 0.8537084467860523,
+   "is_small": false
+  },
+  {
+   "n_verts": 127,
+   "n_faces": 250,
+   "diag": 0.3840790689074322,
+   "volume": 0.00928480876609683,
+   "diag_ratio_to_main": 0.6963973035851153,
+   "is_small": false
+  },
+  {
+   "n_verts": 122,
+   "n_faces": 240,
+   "diag": 0.41097986996446245,
+   "volume": 0.0010781743330881,
+   "diag_ratio_to_main": 0.7451727949798587,
+   "is_small": false
+  },
+  {
+   "n_verts": 122,
+   "n_faces": 240,
+   "diag": 0.3913432236646404,
+   "volume": 0.005384097171940994,
+   "diag_ratio_to_main": 0.7095683878624625,
+   "is_small": false
+  },
+  {
+   "n_verts": 120,
+   "n_faces": 236,
+   "diag": 0.4030547861286674,
+   "volume": 0.0028931118686159607,
+   "diag_ratio_to_main": 0.7308033396756859,
+   "is_small": false
+  },
+  {
+   "n_verts": 119,
+   "n_faces": 234,
+   "diag": 0.34327947996592156,
+   "volume": 0.005449037735161255,
+   "diag_ratio_to_main": 0.6224210678921026,
+   "is_small": false
+  },
+  {
+   "n_verts": 118,
+   "n_faces": 232,
+   "diag": 0.3377024183779152,
+   "volume": 0.0038789551705775693,
+   "diag_ratio_to_main": 0.6123089556573382,
+   "is_small": false
+  },
+  {
+   "n_verts": 117,
+   "n_faces": 230,
+   "diag": 0.3410355194532919,
+   "volume": 0.00501041888128384,
+   "diag_ratio_to_main": 0.6183524055336146,
+   "is_small": false
+  },
+  {
+   "n_verts": 116,
+   "n_faces": 228,
+   "diag": 0.3212497130533711,
+   "volume": 0.001169290668258327,
+   "diag_ratio_to_main": 0.5824775470953308,
+   "is_small": false
+  },
+  {
+   "n_verts": 114,
+   "n_faces": 224,
+   "diag": 0.42693348544770043,
+   "volume": 0.001415369768437813,
+   "diag_ratio_to_main": 0.7740992731567737,
+   "is_small": false
+  },
+  {
+   "n_verts": 113,
+   "n_faces": 222,
+   "diag": 0.38947539921064345,
+   "volume": 0.0058018623503812705,
+   "diag_ratio_to_main": 0.7061817208487301,
+   "is_small": false
+  },
+  {
+   "n_verts": 113,
+   "n_faces": 222,
+   "diag": 0.321190516379873,
+   "volume": 0.004144118938143038,
+   "diag_ratio_to_main": 0.5823702139779012,
+   "is_small": false
+  },
+  {
+   "n_verts": 111,
+   "n_faces": 218,
+   "diag": 0.380554400201544,
+   "volume": 0.004636228854906221,
+   "diag_ratio_to_main": 0.6900065106950114,
+   "is_small": false
+  },
+  {
+   "n_verts": 110,
+   "n_faces": 216,
+   "diag": 0.31928078878085075,
+   "volume": 0.00434409370427602,
+   "diag_ratio_to_main": 0.5789075698032933,
+   "is_small": false
+  },
+  {
+   "n_verts": 106,
+   "n_faces": 208,
+   "diag": 0.3631467634370543,
+   "volume": 0.0015167308649779443,
+   "diag_ratio_to_main": 0.658443657402682,
+   "is_small": false
+  },
+  {
+   "n_verts": 103,
+   "n_faces": 202,
+   "diag": 0.33426647932009146,
+   "volume": 0.0012235471756412153,
+   "diag_ratio_to_main": 0.6060790439311985,
+   "is_small": false
+  },
+  {
+   "n_verts": 96,
+   "n_faces": 188,
+   "diag": 0.30332922876708324,
+   "volume": 0.0011051845212932676,
+   "diag_ratio_to_main": 0.5499848185240739,
+   "is_small": false
+  },
+  {
+   "n_verts": 49,
+   "n_faces": 67,
+   "diag": 0.4254888527975562,
+   "volume": 0.0002649100497364998,
+   "diag_ratio_to_main": 0.7714799211439362,
+   "is_small": false
+  }
+ ],
+ "thresholds": {
+  "diag_ratio": 0.1,
+  "weld": 0.0001,
+  "zero": 0.0001
+ },
+ "blender_version": "5.0.1",
+ "normalize": {
+  "scale_applied": 1.0,
+  "raw_bbox_min": [
+   -0.5,
+   -0.498046875,
+   -0.419921875
+  ],
+  "raw_bbox_max": [
+   0.5,
+   0.49609375,
+   0.41796875
+  ]
+ }
+}

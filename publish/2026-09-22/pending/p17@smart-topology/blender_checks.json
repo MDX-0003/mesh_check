@@ -1,0 +1,122 @@
+{
+ "source": "model.glb",
+ "n_verts": 8023,
+ "n_faces": 15893,
+ "boundary_edges": 282,
+ "non_manifold_edges": 8,
+ "self_intersect_faces": 2425,
+ "zero_area_faces": 4,
+ "zero_length_edges": 0,
+ "n_pieces": 11,
+ "n_small_pieces": 7,
+ "fragment_face_ratio": 0.03964,
+ "pieces": [
+  {
+   "n_verts": 6037,
+   "n_faces": 12008,
+   "diag": 1.626771401540823,
+   "volume": 0.8193169981241226,
+   "diag_ratio_to_main": 1.0,
+   "is_small": false
+  },
+  {
+   "n_verts": 746,
+   "n_faces": 1487,
+   "diag": 0.36952955959328615,
+   "volume": 0.008993368595838547,
+   "diag_ratio_to_main": 0.22715518556773265,
+   "is_small": false
+  },
+  {
+   "n_verts": 608,
+   "n_faces": 1216,
+   "diag": 0.40713287666344744,
+   "volume": 0.010666340589523315,
+   "diag_ratio_to_main": 0.25027049054207917,
+   "is_small": false
+  },
+  {
+   "n_verts": 276,
+   "n_faces": 552,
+   "diag": 0.30339048105796274,
+   "volume": 0.0005383864045143127,
+   "diag_ratio_to_main": 0.1864985337033842,
+   "is_small": false
+  },
+  {
+   "n_verts": 85,
+   "n_faces": 151,
+   "diag": 0.03398118278155783,
+   "volume": 7.53672793507576e-06,
+   "diag_ratio_to_main": 0.020888726436530666,
+   "is_small": true
+  },
+  {
+   "n_verts": 54,
+   "n_faces": 90,
+   "diag": 0.03298067862409904,
+   "volume": 6.728805601596832e-06,
+   "diag_ratio_to_main": 0.020273702004387866,
+   "is_small": true
+  },
+  {
+   "n_verts": 52,
+   "n_faces": 88,
+   "diag": 0.033350896182165246,
+   "volume": 6.845919415354729e-06,
+   "diag_ratio_to_main": 0.020501280112606112,
+   "is_small": true
+  },
+  {
+   "n_verts": 49,
+   "n_faces": 81,
+   "diag": 0.033077225692265524,
+   "volume": 6.845220923423767e-06,
+   "diag_ratio_to_main": 0.020333050888979173,
+   "is_small": true
+  },
+  {
+   "n_verts": 39,
+   "n_faces": 74,
+   "diag": 0.021484375,
+   "volume": 1.8775463104248047e-06,
+   "diag_ratio_to_main": 0.013206757249144363,
+   "is_small": true
+  },
+  {
+   "n_verts": 39,
+   "n_faces": 74,
+   "diag": 0.022657775827526396,
+   "volume": 2.0992010831832886e-06,
+   "diag_ratio_to_main": 0.01392806377470474,
+   "is_small": true
+  },
+  {
+   "n_verts": 38,
+   "n_faces": 72,
+   "diag": 0.021578495892562846,
+   "volume": 1.7136335372924805e-06,
+   "diag_ratio_to_main": 0.013264614728365905,
+   "is_small": true
+  }
+ ],
+ "thresholds": {
+  "diag_ratio": 0.1,
+  "weld": 0.0001,
+  "zero": 0.0001
+ },
+ "blender_version": "5.0.1",
+ "normalize": {
+  "scale_applied": 1.0,
+  "raw_bbox_min": [
+   -0.490234375,
+   -0.484375,
+   -0.5
+  ],
+  "raw_bbox_max": [
+   0.4921875,
+   0.48828125,
+   0.5
+  ]
+ }
+}

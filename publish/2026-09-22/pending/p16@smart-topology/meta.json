@@ -1,0 +1,12 @@
+{
+ "key": "p16@smart-topology",
+ "pid": "p16",
+ "preset": "smart-topology",
+ "prompt": "a wooden beach lounge chair",
+ "category": "furniture",
+ "expect_floater": false,
+ "task_id": "01a0c420-1a14-7236-9f4e-218074a6250e",
+ "status": "SUCCEEDED",
+ "credits": 5,
+ "has_glb": true
+}

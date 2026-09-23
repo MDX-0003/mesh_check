@@ -1,0 +1,2065 @@
+{
+ "version": 1,
+ "weld_digits": 5,
+ "n_pieces": 342,
+ "source": {
+  "size": 254052,
+  "mtime_ns": 1789996895103413600
+ },
+ "pieces": [
+  {
+   "rank": 0,
+   "n_faces": 1157,
+   "glb": "pieces/0.glb"
+  },
+  {
+   "rank": 1,
+   "n_faces": 342,
+   "glb": "pieces/1.glb"
+  },
+  {
+   "rank": 2,
+   "n_faces": 330,
+   "glb": "pieces/2.glb"
+  },
+  {
+   "rank": 3,
+   "n_faces": 278,
+   "glb": "pieces/3.glb"
+  },
+  {
+   "rank": 4,
+   "n_faces": 152,
+   "glb": "pieces/4.glb"
+  },
+  {
+   "rank": 5,
+   "n_faces": 125,
+   "glb": "pieces/5.glb"
+  },
+  {
+   "rank": 6,
+   "n_faces": 104,
+   "glb": "pieces/6.glb"
+  },
+  {
+   "rank": 7,
+   "n_faces": 104,
+   "glb": "pieces/7.glb"
+  },
+  {
+   "rank": 8,
+   "n_faces": 103,
+   "glb": "pieces/8.glb"
+  },
+  {
+   "rank": 9,
+   "n_faces": 102,
+   "glb": "pieces/9.glb"
+  },
+  {
+   "rank": 10,
+   "n_faces": 102,
+   "glb": "pieces/10.glb"
+  },
+  {
+   "rank": 11,
+   "n_faces": 102,
+   "glb": "pieces/11.glb"
+  },
+  {
+   "rank": 12,
+   "n_faces": 102,
+   "glb": "pieces/12.glb"
+  },
+  {
+   "rank": 13,
+   "n_faces": 100,
+   "glb": "pieces/13.glb"
+  },
+  {
+   "rank": 14,
+   "n_faces": 100,
+   "glb": "pieces/14.glb"
+  },
+  {
+   "rank": 15,
+   "n_faces": 100,
+   "glb": "pieces/15.glb"
+  },
+  {
+   "rank": 16,
+   "n_faces": 100,
+   "glb": "pieces/16.glb"
+  },
+  {
+   "rank": 17,
+   "n_faces": 100,
+   "glb": "pieces/17.glb"
+  },
+  {
+   "rank": 18,
+   "n_faces": 100,
+   "glb": "pieces/18.glb"
+  },
+  {
+   "rank": 19,
+   "n_faces": 100,
+   "glb": "pieces/19.glb"
+  },
+  {
+   "rank": 20,
+   "n_faces": 98,
+   "glb": "pieces/20.glb"
+  },
+  {
+   "rank": 21,
+   "n_faces": 98,
+   "glb": "pieces/21.glb"
+  },
+  {
+   "rank": 22,
+   "n_faces": 98,
+   "glb": "pieces/22.glb"
+  },
+  {
+   "rank": 23,
+   "n_faces": 98,
+   "glb": "pieces/23.glb"
+  },
+  {
+   "rank": 24,
+   "n_faces": 98,
+   "glb": "pieces/24.glb"
+  },
+  {
+   "rank": 25,
+   "n_faces": 96,
+   "glb": "pieces/25.glb"
+  },
+  {
+   "rank": 26,
+   "n_faces": 96,
+   "glb": "pieces/26.glb"
+  },
+  {
+   "rank": 27,
+   "n_faces": 96,
+   "glb": "pieces/27.glb"
+  },
+  {
+   "rank": 28,
+   "n_faces": 96,
+   "glb": "pieces/28.glb"
+  },
+  {
+   "rank": 29,
+   "n_faces": 96,
+   "glb": "pieces/29.glb"
+  },
+  {
+   "rank": 30,
+   "n_faces": 96,
+   "glb": "pieces/30.glb"
+  },
+  {
+   "rank": 31,
+   "n_faces": 94,
+   "glb": "pieces/31.glb"
+  },
+  {
+   "rank": 32,
+   "n_faces": 94,
+   "glb": "pieces/32.glb"
+  },
+  {
+   "rank": 33,
+   "n_faces": 93,
+   "glb": "pieces/33.glb"
+  },
+  {
+   "rank": 34,
+   "n_faces": 92,
+   "glb": "pieces/34.glb"
+  },
+  {
+   "rank": 35,
+   "n_faces": 87,
+   "glb": "pieces/35.glb"
+  },
+  {
+   "rank": 36,
+   "n_faces": 82,
+   "glb": "pieces/36.glb"
+  },
+  {
+   "rank": 37,
+   "n_faces": 72,
+   "glb": "pieces/37.glb"
+  },
+  {
+   "rank": 38,
+   "n_faces": 71,
+   "glb": "pieces/38.glb"
+  },
+  {
+   "rank": 39,
+   "n_faces": 68,
+   "glb": "pieces/39.glb"
+  },
+  {
+   "rank": 40,
+   "n_faces": 64,
+   "glb": "pieces/40.glb"
+  },
+  {
+   "rank": 41,
+   "n_faces": 60,
+   "glb": "pieces/41.glb"
+  },
+  {
+   "rank": 42,
+   "n_faces": 56,
+   "glb": "pieces/42.glb"
+  },
+  {
+   "rank": 43,
+   "n_faces": 56,
+   "glb": "pieces/43.glb"
+  },
+  {
+   "rank": 44,
+   "n_faces": 56,
+   "glb": "pieces/44.glb"
+  },
+  {
+   "rank": 45,
+   "n_faces": 54,
+   "glb": "pieces/45.glb"
+  },
+  {
+   "rank": 46,
+   "n_faces": 54,
+   "glb": "pieces/46.glb"
+  },
+  {
+   "rank": 47,
+   "n_faces": 54,
+   "glb": "pieces/47.glb"
+  },
+  {
+   "rank": 48,
+   "n_faces": 54,
+   "glb": "pieces/48.glb"
+  },
+  {
+   "rank": 49,
+   "n_faces": 54,
+   "glb": "pieces/49.glb"
+  },
+  {
+   "rank": 50,
+   "n_faces": 54,
+   "glb": "pieces/50.glb"
+  },
+  {
+   "rank": 51,
+   "n_faces": 54,
+   "glb": "pieces/51.glb"
+  },
+  {
+   "rank": 52,
+   "n_faces": 52,
+   "glb": "pieces/52.glb"
+  },
+  {
+   "rank": 53,
+   "n_faces": 52,
+   "glb": "pieces/53.glb"
+  },
+  {
+   "rank": 54,
+   "n_faces": 52,
+   "glb": "pieces/54.glb"
+  },
+  {
+   "rank": 55,
+   "n_faces": 52,
+   "glb": "pieces/55.glb"
+  },
+  {
+   "rank": 56,
+   "n_faces": 50,
+   "glb": "pieces/56.glb"
+  },
+  {
+   "rank": 57,
+   "n_faces": 48,
+   "glb": "pieces/57.glb"
+  },
+  {
+   "rank": 58,
+   "n_faces": 44,
+   "glb": "pieces/58.glb"
+  },
+  {
+   "rank": 59,
+   "n_faces": 42,
+   "glb": "pieces/59.glb"
+  },
+  {
+   "rank": 60,
+   "n_faces": 42,
+   "glb": "pieces/60.glb"
+  },
+  {
+   "rank": 61,
+   "n_faces": 42,
+   "glb": "pieces/61.glb"
+  },
+  {
+   "rank": 62,
+   "n_faces": 42,
+   "glb": "pieces/62.glb"
+  },
+  {
+   "rank": 63,
+   "n_faces": 42,
+   "glb": "pieces/63.glb"
+  },
+  {
+   "rank": 64,
+   "n_faces": 42,
+   "glb": "pieces/64.glb"
+  },
+  {
+   "rank": 65,
+   "n_faces": 42,
+   "glb": "pieces/65.glb"
+  },
+  {
+   "rank": 66,
+   "n_faces": 42,
+   "glb": "pieces/66.glb"
+  },
+  {
+   "rank": 67,
+   "n_faces": 40,
+   "glb": "pieces/67.glb"
+  },
+  {
+   "rank": 68,
+   "n_faces": 40,
+   "glb": "pieces/68.glb"
+  },
+  {
+   "rank": 69,
+   "n_faces": 40,
+   "glb": "pieces/69.glb"
+  },
+  {
+   "rank": 70,
+   "n_faces": 40,
+   "glb": "pieces/70.glb"
+  },
+  {
+   "rank": 71,
+   "n_faces": 40,
+   "glb": "pieces/71.glb"
+  },
+  {
+   "rank": 72,
+   "n_faces": 40,
+   "glb": "pieces/72.glb"
+  },
+  {
+   "rank": 73,
+   "n_faces": 40,
+   "glb": "pieces/73.glb"
+  },
+  {
+   "rank": 74,
+   "n_faces": 40,
+   "glb": "pieces/74.glb"
+  },
+  {
+   "rank": 75,
+   "n_faces": 40,
+   "glb": "pieces/75.glb"
+  },
+  {
+   "rank": 76,
+   "n_faces": 40,
+   "glb": "pieces/76.glb"
+  },
+  {
+   "rank": 77,
+   "n_faces": 40,
+   "glb": "pieces/77.glb"
+  },
+  {
+   "rank": 78,
+   "n_faces": 40,
+   "glb": "pieces/78.glb"
+  },
+  {
+   "rank": 79,
+   "n_faces": 40,
+   "glb": "pieces/79.glb"
+  },
+  {
+   "rank": 80,
+   "n_faces": 40,
+   "glb": "pieces/80.glb"
+  },
+  {
+   "rank": 81,
+   "n_faces": 40,
+   "glb": "pieces/81.glb"
+  },
+  {
+   "rank": 82,
+   "n_faces": 40,
+   "glb": "pieces/82.glb"
+  },
+  {
+   "rank": 83,
+   "n_faces": 40,
+   "glb": "pieces/83.glb"
+  },
+  {
+   "rank": 84,
+   "n_faces": 38,
+   "glb": "pieces/84.glb"
+  },
+  {
+   "rank": 85,
+   "n_faces": 38,
+   "glb": "pieces/85.glb"
+  },
+  {
+   "rank": 86,
+   "n_faces": 38,
+   "glb": "pieces/86.glb"
+  },
+  {
+   "rank": 87,
+   "n_faces": 38,
+   "glb": "pieces/87.glb"
+  },
+  {
+   "rank": 88,
+   "n_faces": 38,
+   "glb": "pieces/88.glb"
+  },
+  {
+   "rank": 89,
+   "n_faces": 38,
+   "glb": "pieces/89.glb"
+  },
+  {
+   "rank": 90,
+   "n_faces": 38,
+   "glb": "pieces/90.glb"
+  },
+  {
+   "rank": 91,
+   "n_faces": 38,
+   "glb": "pieces/91.glb"
+  },
+  {
+   "rank": 92,
+   "n_faces": 38,
+   "glb": "pieces/92.glb"
+  },
+  {
+   "rank": 93,
+   "n_faces": 38,
+   "glb": "pieces/93.glb"
+  },
+  {
+   "rank": 94,
+   "n_faces": 38,
+   "glb": "pieces/94.glb"
+  },
+  {
+   "rank": 95,
+   "n_faces": 38,
+   "glb": "pieces/95.glb"
+  },
+  {
+   "rank": 96,
+   "n_faces": 37,
+   "glb": "pieces/96.glb"
+  },
+  {
+   "rank": 97,
+   "n_faces": 37,
+   "glb": "pieces/97.glb"
+  },
+  {
+   "rank": 98,
+   "n_faces": 36,
+   "glb": "pieces/98.glb"
+  },
+  {
+   "rank": 99,
+   "n_faces": 36,
+   "glb": "pieces/99.glb"
+  },
+  {
+   "rank": 100,
+   "n_faces": 36,
+   "glb": "pieces/100.glb"
+  },
+  {
+   "rank": 101,
+   "n_faces": 36,
+   "glb": "pieces/101.glb"
+  },
+  {
+   "rank": 102,
+   "n_faces": 36,
+   "glb": "pieces/102.glb"
+  },
+  {
+   "rank": 103,
+   "n_faces": 36,
+   "glb": "pieces/103.glb"
+  },
+  {
+   "rank": 104,
+   "n_faces": 36,
+   "glb": "pieces/104.glb"
+  },
+  {
+   "rank": 105,
+   "n_faces": 36,
+   "glb": "pieces/105.glb"
+  },
+  {
+   "rank": 106,
+   "n_faces": 36,
+   "glb": "pieces/106.glb"
+  },
+  {
+   "rank": 107,
+   "n_faces": 36,
+   "glb": "pieces/107.glb"
+  },
+  {
+   "rank": 108,
+   "n_faces": 36,
+   "glb": "pieces/108.glb"
+  },
+  {
+   "rank": 109,
+   "n_faces": 36,
+   "glb": "pieces/109.glb"
+  },
+  {
+   "rank": 110,
+   "n_faces": 36,
+   "glb": "pieces/110.glb"
+  },
+  {
+   "rank": 111,
+   "n_faces": 36,
+   "glb": "pieces/111.glb"
+  },
+  {
+   "rank": 112,
+   "n_faces": 36,
+   "glb": "pieces/112.glb"
+  },
+  {
+   "rank": 113,
+   "n_faces": 36,
+   "glb": "pieces/113.glb"
+  },
+  {
+   "rank": 114,
+   "n_faces": 36,
+   "glb": "pieces/114.glb"
+  },
+  {
+   "rank": 115,
+   "n_faces": 36,
+   "glb": "pieces/115.glb"
+  },
+  {
+   "rank": 116,
+   "n_faces": 36,
+   "glb": "pieces/116.glb"
+  },
+  {
+   "rank": 117,
+   "n_faces": 34,
+   "glb": "pieces/117.glb"
+  },
+  {
+   "rank": 118,
+   "n_faces": 34,
+   "glb": "pieces/118.glb"
+  },
+  {
+   "rank": 119,
+   "n_faces": 34,
+   "glb": "pieces/119.glb"
+  },
+  {
+   "rank": 120,
+   "n_faces": 34,
+   "glb": "pieces/120.glb"
+  },
+  {
+   "rank": 121,
+   "n_faces": 34,
+   "glb": "pieces/121.glb"
+  },
+  {
+   "rank": 122,
+   "n_faces": 34,
+   "glb": "pieces/122.glb"
+  },
+  {
+   "rank": 123,
+   "n_faces": 34,
+   "glb": "pieces/123.glb"
+  },
+  {
+   "rank": 124,
+   "n_faces": 34,
+   "glb": "pieces/124.glb"
+  },
+  {
+   "rank": 125,
+   "n_faces": 34,
+   "glb": "pieces/125.glb"
+  },
+  {
+   "rank": 126,
+   "n_faces": 34,
+   "glb": "pieces/126.glb"
+  },
+  {
+   "rank": 127,
+   "n_faces": 34,
+   "glb": "pieces/127.glb"
+  },
+  {
+   "rank": 128,
+   "n_faces": 34,
+   "glb": "pieces/128.glb"
+  },
+  {
+   "rank": 129,
+   "n_faces": 34,
+   "glb": "pieces/129.glb"
+  },
+  {
+   "rank": 130,
+   "n_faces": 34,
+   "glb": "pieces/130.glb"
+  },
+  {
+   "rank": 131,
+   "n_faces": 34,
+   "glb": "pieces/131.glb"
+  },
+  {
+   "rank": 132,
+   "n_faces": 34,
+   "glb": "pieces/132.glb"
+  },
+  {
+   "rank": 133,
+   "n_faces": 32,
+   "glb": "pieces/133.glb"
+  },
+  {
+   "rank": 134,
+   "n_faces": 32,
+   "glb": "pieces/134.glb"
+  },
+  {
+   "rank": 135,
+   "n_faces": 32,
+   "glb": "pieces/135.glb"
+  },
+  {
+   "rank": 136,
+   "n_faces": 32,
+   "glb": "pieces/136.glb"
+  },
+  {
+   "rank": 137,
+   "n_faces": 32,
+   "glb": "pieces/137.glb"
+  },
+  {
+   "rank": 138,
+   "n_faces": 32,
+   "glb": "pieces/138.glb"
+  },
+  {
+   "rank": 139,
+   "n_faces": 32,
+   "glb": "pieces/139.glb"
+  },
+  {
+   "rank": 140,
+   "n_faces": 32,
+   "glb": "pieces/140.glb"
+  },
+  {
+   "rank": 141,
+   "n_faces": 32,
+   "glb": "pieces/141.glb"
+  },
+  {
+   "rank": 142,
+   "n_faces": 32,
+   "glb": "pieces/142.glb"
+  },
+  {
+   "rank": 143,
+   "n_faces": 32,
+   "glb": "pieces/143.glb"
+  },
+  {
+   "rank": 144,
+   "n_faces": 32,
+   "glb": "pieces/144.glb"
+  },
+  {
+   "rank": 145,
+   "n_faces": 32,
+   "glb": "pieces/145.glb"
+  },
+  {
+   "rank": 146,
+   "n_faces": 32,
+   "glb": "pieces/146.glb"
+  },
+  {
+   "rank": 147,
+   "n_faces": 32,
+   "glb": "pieces/147.glb"
+  },
+  {
+   "rank": 148,
+   "n_faces": 32,
+   "glb": "pieces/148.glb"
+  },
+  {
+   "rank": 149,
+   "n_faces": 32,
+   "glb": "pieces/149.glb"
+  },
+  {
+   "rank": 150,
+   "n_faces": 32,
+   "glb": "pieces/150.glb"
+  },
+  {
+   "rank": 151,
+   "n_faces": 30,
+   "glb": "pieces/151.glb"
+  },
+  {
+   "rank": 152,
+   "n_faces": 30,
+   "glb": "pieces/152.glb"
+  },
+  {
+   "rank": 153,
+   "n_faces": 30,
+   "glb": "pieces/153.glb"
+  },
+  {
+   "rank": 154,
+   "n_faces": 30,
+   "glb": "pieces/154.glb"
+  },
+  {
+   "rank": 155,
+   "n_faces": 30,
+   "glb": "pieces/155.glb"
+  },
+  {
+   "rank": 156,
+   "n_faces": 30,
+   "glb": "pieces/156.glb"
+  },
+  {
+   "rank": 157,
+   "n_faces": 30,
+   "glb": "pieces/157.glb"
+  },
+  {
+   "rank": 158,
+   "n_faces": 30,
+   "glb": "pieces/158.glb"
+  },
+  {
+   "rank": 159,
+   "n_faces": 28,
+   "glb": "pieces/159.glb"
+  },
+  {
+   "rank": 160,
+   "n_faces": 28,
+   "glb": "pieces/160.glb"
+  },
+  {
+   "rank": 161,
+   "n_faces": 28,
+   "glb": "pieces/161.glb"
+  },
+  {
+   "rank": 162,
+   "n_faces": 28,
+   "glb": "pieces/162.glb"
+  },
+  {
+   "rank": 163,
+   "n_faces": 28,
+   "glb": "pieces/163.glb"
+  },
+  {
+   "rank": 164,
+   "n_faces": 28,
+   "glb": "pieces/164.glb"
+  },
+  {
+   "rank": 165,
+   "n_faces": 28,
+   "glb": "pieces/165.glb"
+  },
+  {
+   "rank": 166,
+   "n_faces": 26,
+   "glb": "pieces/166.glb"
+  },
+  {
+   "rank": 167,
+   "n_faces": 26,
+   "glb": "pieces/167.glb"
+  },
+  {
+   "rank": 168,
+   "n_faces": 26,
+   "glb": "pieces/168.glb"
+  },
+  {
+   "rank": 169,
+   "n_faces": 26,
+   "glb": "pieces/169.glb"
+  },
+  {
+   "rank": 170,
+   "n_faces": 26,
+   "glb": "pieces/170.glb"
+  },
+  {
+   "rank": 171,
+   "n_faces": 26,
+   "glb": "pieces/171.glb"
+  },
+  {
+   "rank": 172,
+   "n_faces": 26,
+   "glb": "pieces/172.glb"
+  },
+  {
+   "rank": 173,
+   "n_faces": 26,
+   "glb": "pieces/173.glb"
+  },
+  {
+   "rank": 174,
+   "n_faces": 26,
+   "glb": "pieces/174.glb"
+  },
+  {
+   "rank": 175,
+   "n_faces": 26,
+   "glb": "pieces/175.glb"
+  },
+  {
+   "rank": 176,
+   "n_faces": 25,
+   "glb": "pieces/176.glb"
+  },
+  {
+   "rank": 177,
+   "n_faces": 25,
+   "glb": "pieces/177.glb"
+  },
+  {
+   "rank": 178,
+   "n_faces": 25,
+   "glb": "pieces/178.glb"
+  },
+  {
+   "rank": 179,
+   "n_faces": 25,
+   "glb": "pieces/179.glb"
+  },
+  {
+   "rank": 180,
+   "n_faces": 24,
+   "glb": "pieces/180.glb"
+  },
+  {
+   "rank": 181,
+   "n_faces": 24,
+   "glb": "pieces/181.glb"
+  },
+  {
+   "rank": 182,
+   "n_faces": 24,
+   "glb": "pieces/182.glb"
+  },
+  {
+   "rank": 183,
+   "n_faces": 24,
+   "glb": "pieces/183.glb"
+  },
+  {
+   "rank": 184,
+   "n_faces": 24,
+   "glb": "pieces/184.glb"
+  },
+  {
+   "rank": 185,
+   "n_faces": 24,
+   "glb": "pieces/185.glb"
+  },
+  {
+   "rank": 186,
+   "n_faces": 24,
+   "glb": "pieces/186.glb"
+  },
+  {
+   "rank": 187,
+   "n_faces": 24,
+   "glb": "pieces/187.glb"
+  },
+  {
+   "rank": 188,
+   "n_faces": 24,
+   "glb": "pieces/188.glb"
+  },
+  {
+   "rank": 189,
+   "n_faces": 24,
+   "glb": "pieces/189.glb"
+  },
+  {
+   "rank": 190,
+   "n_faces": 24,
+   "glb": "pieces/190.glb"
+  },
+  {
+   "rank": 191,
+   "n_faces": 24,
+   "glb": "pieces/191.glb"
+  },
+  {
+   "rank": 192,
+   "n_faces": 24,
+   "glb": "pieces/192.glb"
+  },
+  {
+   "rank": 193,
+   "n_faces": 24,
+   "glb": "pieces/193.glb"
+  },
+  {
+   "rank": 194,
+   "n_faces": 24,
+   "glb": "pieces/194.glb"
+  },
+  {
+   "rank": 195,
+   "n_faces": 24,
+   "glb": "pieces/195.glb"
+  },
+  {
+   "rank": 196,
+   "n_faces": 23,
+   "glb": "pieces/196.glb"
+  },
+  {
+   "rank": 197,
+   "n_faces": 23,
+   "glb": "pieces/197.glb"
+  },
+  {
+   "rank": 198,
+   "n_faces": 23,
+   "glb": "pieces/198.glb"
+  },
+  {
+   "rank": 199,
+   "n_faces": 23,
+   "glb": "pieces/199.glb"
+  },
+  {
+   "rank": 200,
+   "n_faces": 23,
+   "glb": "pieces/200.glb"
+  },
+  {
+   "rank": 201,
+   "n_faces": 23,
+   "glb": "pieces/201.glb"
+  },
+  {
+   "rank": 202,
+   "n_faces": 23,
+   "glb": "pieces/202.glb"
+  },
+  {
+   "rank": 203,
+   "n_faces": 22,
+   "glb": "pieces/203.glb"
+  },
+  {
+   "rank": 204,
+   "n_faces": 22,
+   "glb": "pieces/204.glb"
+  },
+  {
+   "rank": 205,
+   "n_faces": 22,
+   "glb": "pieces/205.glb"
+  },
+  {
+   "rank": 206,
+   "n_faces": 22,
+   "glb": "pieces/206.glb"
+  },
+  {
+   "rank": 207,
+   "n_faces": 22,
+   "glb": "pieces/207.glb"
+  },
+  {
+   "rank": 208,
+   "n_faces": 22,
+   "glb": "pieces/208.glb"
+  },
+  {
+   "rank": 209,
+   "n_faces": 22,
+   "glb": "pieces/209.glb"
+  },
+  {
+   "rank": 210,
+   "n_faces": 22,
+   "glb": "pieces/210.glb"
+  },
+  {
+   "rank": 211,
+   "n_faces": 22,
+   "glb": "pieces/211.glb"
+  },
+  {
+   "rank": 212,
+   "n_faces": 22,
+   "glb": "pieces/212.glb"
+  },
+  {
+   "rank": 213,
+   "n_faces": 22,
+   "glb": "pieces/213.glb"
+  },
+  {
+   "rank": 214,
+   "n_faces": 22,
+   "glb": "pieces/214.glb"
+  },
+  {
+   "rank": 215,
+   "n_faces": 22,
+   "glb": "pieces/215.glb"
+  },
+  {
+   "rank": 216,
+   "n_faces": 22,
+   "glb": "pieces/216.glb"
+  },
+  {
+   "rank": 217,
+   "n_faces": 22,
+   "glb": "pieces/217.glb"
+  },
+  {
+   "rank": 218,
+   "n_faces": 22,
+   "glb": "pieces/218.glb"
+  },
+  {
+   "rank": 219,
+   "n_faces": 22,
+   "glb": "pieces/219.glb"
+  },
+  {
+   "rank": 220,
+   "n_faces": 21,
+   "glb": "pieces/220.glb"
+  },
+  {
+   "rank": 221,
+   "n_faces": 21,
+   "glb": "pieces/221.glb"
+  },
+  {
+   "rank": 222,
+   "n_faces": 20,
+   "glb": "pieces/222.glb"
+  },
+  {
+   "rank": 223,
+   "n_faces": 20,
+   "glb": "pieces/223.glb"
+  },
+  {
+   "rank": 224,
+   "n_faces": 20,
+   "glb": "pieces/224.glb"
+  },
+  {
+   "rank": 225,
+   "n_faces": 20,
+   "glb": "pieces/225.glb"
+  },
+  {
+   "rank": 226,
+   "n_faces": 20,
+   "glb": "pieces/226.glb"
+  },
+  {
+   "rank": 227,
+   "n_faces": 20,
+   "glb": "pieces/227.glb"
+  },
+  {
+   "rank": 228,
+   "n_faces": 20,
+   "glb": "pieces/228.glb"
+  },
+  {
+   "rank": 229,
+   "n_faces": 20,
+   "glb": "pieces/229.glb"
+  },
+  {
+   "rank": 230,
+   "n_faces": 20,
+   "glb": "pieces/230.glb"
+  },
+  {
+   "rank": 231,
+   "n_faces": 20,
+   "glb": "pieces/231.glb"
+  },
+  {
+   "rank": 232,
+   "n_faces": 19,
+   "glb": "pieces/232.glb"
+  },
+  {
+   "rank": 233,
+   "n_faces": 19,
+   "glb": "pieces/233.glb"
+  },
+  {
+   "rank": 234,
+   "n_faces": 18,
+   "glb": "pieces/234.glb"
+  },
+  {
+   "rank": 235,
+   "n_faces": 18,
+   "glb": "pieces/235.glb"
+  },
+  {
+   "rank": 236,
+   "n_faces": 18,
+   "glb": "pieces/236.glb"
+  },
+  {
+   "rank": 237,
+   "n_faces": 18,
+   "glb": "pieces/237.glb"
+  },
+  {
+   "rank": 238,
+   "n_faces": 18,
+   "glb": "pieces/238.glb"
+  },
+  {
+   "rank": 239,
+   "n_faces": 18,
+   "glb": "pieces/239.glb"
+  },
+  {
+   "rank": 240,
+   "n_faces": 18,
+   "glb": "pieces/240.glb"
+  },
+  {
+   "rank": 241,
+   "n_faces": 18,
+   "glb": "pieces/241.glb"
+  },
+  {
+   "rank": 242,
+   "n_faces": 18,
+   "glb": "pieces/242.glb"
+  },
+  {
+   "rank": 243,
+   "n_faces": 18,
+   "glb": "pieces/243.glb"
+  },
+  {
+   "rank": 244,
+   "n_faces": 18,
+   "glb": "pieces/244.glb"
+  },
+  {
+   "rank": 245,
+   "n_faces": 18,
+   "glb": "pieces/245.glb"
+  },
+  {
+   "rank": 246,
+   "n_faces": 17,
+   "glb": "pieces/246.glb"
+  },
+  {
+   "rank": 247,
+   "n_faces": 16,
+   "glb": "pieces/247.glb"
+  },
+  {
+   "rank": 248,
+   "n_faces": 16,
+   "glb": "pieces/248.glb"
+  },
+  {
+   "rank": 249,
+   "n_faces": 16,
+   "glb": "pieces/249.glb"
+  },
+  {
+   "rank": 250,
+   "n_faces": 16,
+   "glb": "pieces/250.glb"
+  },
+  {
+   "rank": 251,
+   "n_faces": 16,
+   "glb": "pieces/251.glb"
+  },
+  {
+   "rank": 252,
+   "n_faces": 16,
+   "glb": "pieces/252.glb"
+  },
+  {
+   "rank": 253,
+   "n_faces": 16,
+   "glb": "pieces/253.glb"
+  },
+  {
+   "rank": 254,
+   "n_faces": 16,
+   "glb": "pieces/254.glb"
+  },
+  {
+   "rank": 255,
+   "n_faces": 15,
+   "glb": "pieces/255.glb"
+  },
+  {
+   "rank": 256,
+   "n_faces": 14,
+   "glb": "pieces/256.glb"
+  },
+  {
+   "rank": 257,
+   "n_faces": 14,
+   "glb": "pieces/257.glb"
+  },
+  {
+   "rank": 258,
+   "n_faces": 14,
+   "glb": "pieces/258.glb"
+  },
+  {
+   "rank": 259,
+   "n_faces": 14,
+   "glb": "pieces/259.glb"
+  },
+  {
+   "rank": 260,
+   "n_faces": 14,
+   "glb": "pieces/260.glb"
+  },
+  {
+   "rank": 261,
+   "n_faces": 14,
+   "glb": "pieces/261.glb"
+  },
+  {
+   "rank": 262,
+   "n_faces": 14,
+   "glb": "pieces/262.glb"
+  },
+  {
+   "rank": 263,
+   "n_faces": 14,
+   "glb": "pieces/263.glb"
+  },
+  {
+   "rank": 264,
+   "n_faces": 14,
+   "glb": "pieces/264.glb"
+  },
+  {
+   "rank": 265,
+   "n_faces": 14,
+   "glb": "pieces/265.glb"
+  },
+  {
+   "rank": 266,
+   "n_faces": 14,
+   "glb": "pieces/266.glb"
+  },
+  {
+   "rank": 267,
+   "n_faces": 13,
+   "glb": "pieces/267.glb"
+  },
+  {
+   "rank": 268,
+   "n_faces": 13,
+   "glb": "pieces/268.glb"
+  },
+  {
+   "rank": 269,
+   "n_faces": 13,
+   "glb": "pieces/269.glb"
+  },
+  {
+   "rank": 270,
+   "n_faces": 13,
+   "glb": "pieces/270.glb"
+  },
+  {
+   "rank": 271,
+   "n_faces": 13,
+   "glb": "pieces/271.glb"
+  },
+  {
+   "rank": 272,
+   "n_faces": 13,
+   "glb": "pieces/272.glb"
+  },
+  {
+   "rank": 273,
+   "n_faces": 13,
+   "glb": "pieces/273.glb"
+  },
+  {
+   "rank": 274,
+   "n_faces": 12,
+   "glb": "pieces/274.glb"
+  },
+  {
+   "rank": 275,
+   "n_faces": 12,
+   "glb": "pieces/275.glb"
+  },
+  {
+   "rank": 276,
+   "n_faces": 12,
+   "glb": "pieces/276.glb"
+  },
+  {
+   "rank": 277,
+   "n_faces": 12,
+   "glb": "pieces/277.glb"
+  },
+  {
+   "rank": 278,
+   "n_faces": 12,
+   "glb": "pieces/278.glb"
+  },
+  {
+   "rank": 279,
+   "n_faces": 12,
+   "glb": "pieces/279.glb"
+  },
+  {
+   "rank": 280,
+   "n_faces": 12,
+   "glb": "pieces/280.glb"
+  },
+  {
+   "rank": 281,
+   "n_faces": 12,
+   "glb": "pieces/281.glb"
+  },
+  {
+   "rank": 282,
+   "n_faces": 12,
+   "glb": "pieces/282.glb"
+  },
+  {
+   "rank": 283,
+   "n_faces": 10,
+   "glb": "pieces/283.glb"
+  },
+  {
+   "rank": 284,
+   "n_faces": 10,
+   "glb": "pieces/284.glb"
+  },
+  {
+   "rank": 285,
+   "n_faces": 10,
+   "glb": "pieces/285.glb"
+  },
+  {
+   "rank": 286,
+   "n_faces": 10,
+   "glb": "pieces/286.glb"
+  },
+  {
+   "rank": 287,
+   "n_faces": 10,
+   "glb": "pieces/287.glb"
+  },
+  {
+   "rank": 288,
+   "n_faces": 10,
+   "glb": "pieces/288.glb"
+  },
+  {
+   "rank": 289,
+   "n_faces": 10,
+   "glb": "pieces/289.glb"
+  },
+  {
+   "rank": 290,
+   "n_faces": 10,
+   "glb": "pieces/290.glb"
+  },
+  {
+   "rank": 291,
+   "n_faces": 10,
+   "glb": "pieces/291.glb"
+  },
+  {
+   "rank": 292,
+   "n_faces": 10,
+   "glb": "pieces/292.glb"
+  },
+  {
+   "rank": 293,
+   "n_faces": 10,
+   "glb": "pieces/293.glb"
+  },
+  {
+   "rank": 294,
+   "n_faces": 9,
+   "glb": "pieces/294.glb"
+  },
+  {
+   "rank": 295,
+   "n_faces": 9,
+   "glb": "pieces/295.glb"
+  },
+  {
+   "rank": 296,
+   "n_faces": 8,
+   "glb": "pieces/296.glb"
+  },
+  {
+   "rank": 297,
+   "n_faces": 8,
+   "glb": "pieces/297.glb"
+  },
+  {
+   "rank": 298,
+   "n_faces": 8,
+   "glb": "pieces/298.glb"
+  },
+  {
+   "rank": 299,
+   "n_faces": 8,
+   "glb": "pieces/299.glb"
+  },
+  {
+   "rank": 300,
+   "n_faces": 8,
+   "glb": "pieces/300.glb"
+  },
+  {
+   "rank": 301,
+   "n_faces": 8,
+   "glb": "pieces/301.glb"
+  },
+  {
+   "rank": 302,
+   "n_faces": 8,
+   "glb": "pieces/302.glb"
+  },
+  {
+   "rank": 303,
+   "n_faces": 8,
+   "glb": "pieces/303.glb"
+  },
+  {
+   "rank": 304,
+   "n_faces": 8,
+   "glb": "pieces/304.glb"
+  },
+  {
+   "rank": 305,
+   "n_faces": 8,
+   "glb": "pieces/305.glb"
+  },
+  {
+   "rank": 306,
+   "n_faces": 7,
+   "glb": "pieces/306.glb"
+  },
+  {
+   "rank": 307,
+   "n_faces": 6,
+   "glb": "pieces/307.glb"
+  },
+  {
+   "rank": 308,
+   "n_faces": 6,
+   "glb": "pieces/308.glb"
+  },
+  {
+   "rank": 309,
+   "n_faces": 6,
+   "glb": "pieces/309.glb"
+  },
+  {
+   "rank": 310,
+   "n_faces": 6,
+   "glb": "pieces/310.glb"
+  },
+  {
+   "rank": 311,
+   "n_faces": 6,
+   "glb": "pieces/311.glb"
+  },
+  {
+   "rank": 312,
+   "n_faces": 6,
+   "glb": "pieces/312.glb"
+  },
+  {
+   "rank": 313,
+   "n_faces": 6,
+   "glb": "pieces/313.glb"
+  },
+  {
+   "rank": 314,
+   "n_faces": 6,
+   "glb": "pieces/314.glb"
+  },
+  {
+   "rank": 315,
+   "n_faces": 5,
+   "glb": "pieces/315.glb"
+  },
+  {
+   "rank": 316,
+   "n_faces": 5,
+   "glb": "pieces/316.glb"
+  },
+  {
+   "rank": 317,
+   "n_faces": 5,
+   "glb": "pieces/317.glb"
+  },
+  {
+   "rank": 318,
+   "n_faces": 5,
+   "glb": "pieces/318.glb"
+  },
+  {
+   "rank": 319,
+   "n_faces": 5,
+   "glb": "pieces/319.glb"
+  },
+  {
+   "rank": 320,
+   "n_faces": 4,
+   "glb": "pieces/320.glb"
+  },
+  {
+   "rank": 321,
+   "n_faces": 3,
+   "glb": "pieces/321.glb"
+  },
+  {
+   "rank": 322,
+   "n_faces": 3,
+   "glb": "pieces/322.glb"
+  },
+  {
+   "rank": 323,
+   "n_faces": 3,
+   "glb": "pieces/323.glb"
+  },
+  {
+   "rank": 324,
+   "n_faces": 2,
+   "glb": "pieces/324.glb"
+  },
+  {
+   "rank": 325,
+   "n_faces": 2,
+   "glb": "pieces/325.glb"
+  },
+  {
+   "rank": 326,
+   "n_faces": 2,
+   "glb": "pieces/326.glb"
+  },
+  {
+   "rank": 327,
+   "n_faces": 2,
+   "glb": "pieces/327.glb"
+  },
+  {
+   "rank": 328,
+   "n_faces": 2,
+   "glb": "pieces/328.glb"
+  },
+  {
+   "rank": 329,
+   "n_faces": 2,
+   "glb": "pieces/329.glb"
+  },
+  {
+   "rank": 330,
+   "n_faces": 2,
+   "glb": "pieces/330.glb"
+  },
+  {
+   "rank": 331,
+   "n_faces": 2,
+   "glb": "pieces/331.glb"
+  },
+  {
+   "rank": 332,
+   "n_faces": 2,
+   "glb": "pieces/332.glb"
+  },
+  {
+   "rank": 333,
+   "n_faces": 2,
+   "glb": "pieces/333.glb"
+  },
+  {
+   "rank": 334,
+   "n_faces": 2,
+   "glb": "pieces/334.glb"
+  },
+  {
+   "rank": 335,
+   "n_faces": 1,
+   "glb": "pieces/335.glb"
+  },
+  {
+   "rank": 336,
+   "n_faces": 1,
+   "glb": "pieces/336.glb"
+  },
+  {
+   "rank": 337,
+   "n_faces": 1,
+   "glb": "pieces/337.glb"
+  },
+  {
+   "rank": 338,
+   "n_faces": 1,
+   "glb": "pieces/338.glb"
+  },
+  {
+   "rank": 339,
+   "n_faces": 1,
+   "glb": "pieces/339.glb"
+  },
+  {
+   "rank": 340,
+   "n_faces": 1,
+   "glb": "pieces/340.glb"
+  },
+  {
+   "rank": 341,
+   "n_faces": 1,
+   "glb": "pieces/341.glb"
+  }
+ ],
+ "glbs": {
+  "0": "pieces/0.glb",
+  "1": "pieces/1.glb",
+  "2": "pieces/2.glb",
+  "3": "pieces/3.glb",
+  "4": "pieces/4.glb",
+  "5": "pieces/5.glb",
+  "6": "pieces/6.glb",
+  "7": "pieces/7.glb",
+  "8": "pieces/8.glb",
+  "9": "pieces/9.glb",
+  "10": "pieces/10.glb",
+  "11": "pieces/11.glb",
+  "12": "pieces/12.glb",
+  "13": "pieces/13.glb",
+  "14": "pieces/14.glb",
+  "15": "pieces/15.glb",
+  "16": "pieces/16.glb",
+  "17": "pieces/17.glb",
+  "18": "pieces/18.glb",
+  "19": "pieces/19.glb",
+  "20": "pieces/20.glb",
+  "21": "pieces/21.glb",
+  "22": "pieces/22.glb",
+  "23": "pieces/23.glb",
+  "24": "pieces/24.glb",
+  "25": "pieces/25.glb",
+  "26": "pieces/26.glb",
+  "27": "pieces/27.glb",
+  "28": "pieces/28.glb",
+  "29": "pieces/29.glb",
+  "30": "pieces/30.glb",
+  "31": "pieces/31.glb",
+  "32": "pieces/32.glb",
+  "33": "pieces/33.glb",
+  "34": "pieces/34.glb",
+  "35": "pieces/35.glb",
+  "36": "pieces/36.glb",
+  "37": "pieces/37.glb",
+  "38": "pieces/38.glb",
+  "39": "pieces/39.glb",
+  "40": "pieces/40.glb",
+  "41": "pieces/41.glb",
+  "42": "pieces/42.glb",
+  "43": "pieces/43.glb",
+  "44": "pieces/44.glb",
+  "45": "pieces/45.glb",
+  "46": "pieces/46.glb",
+  "47": "pieces/47.glb",
+  "48": "pieces/48.glb",
+  "49": "pieces/49.glb",
+  "50": "pieces/50.glb",
+  "51": "pieces/51.glb",
+  "52": "pieces/52.glb",
+  "53": "pieces/53.glb",
+  "54": "pieces/54.glb",
+  "55": "pieces/55.glb",
+  "56": "pieces/56.glb",
+  "57": "pieces/57.glb",
+  "58": "pieces/58.glb",
+  "59": "pieces/59.glb",
+  "60": "pieces/60.glb",
+  "61": "pieces/61.glb",
+  "62": "pieces/62.glb",
+  "63": "pieces/63.glb",
+  "64": "pieces/64.glb",
+  "65": "pieces/65.glb",
+  "66": "pieces/66.glb",
+  "67": "pieces/67.glb",
+  "68": "pieces/68.glb",
+  "69": "pieces/69.glb",
+  "70": "pieces/70.glb",
+  "71": "pieces/71.glb",
+  "72": "pieces/72.glb",
+  "73": "pieces/73.glb",
+  "74": "pieces/74.glb",
+  "75": "pieces/75.glb",
+  "76": "pieces/76.glb",
+  "77": "pieces/77.glb",
+  "78": "pieces/78.glb",
+  "79": "pieces/79.glb",
+  "80": "pieces/80.glb",
+  "81": "pieces/81.glb",
+  "82": "pieces/82.glb",
+  "83": "pieces/83.glb",
+  "84": "pieces/84.glb",
+  "85": "pieces/85.glb",
+  "86": "pieces/86.glb",
+  "87": "pieces/87.glb",
+  "88": "pieces/88.glb",
+  "89": "pieces/89.glb",
+  "90": "pieces/90.glb",
+  "91": "pieces/91.glb",
+  "92": "pieces/92.glb",
+  "93": "pieces/93.glb",
+  "94": "pieces/94.glb",
+  "95": "pieces/95.glb",
+  "96": "pieces/96.glb",
+  "97": "pieces/97.glb",
+  "98": "pieces/98.glb",
+  "99": "pieces/99.glb",
+  "100": "pieces/100.glb",
+  "101": "pieces/101.glb",
+  "102": "pieces/102.glb",
+  "103": "pieces/103.glb",
+  "104": "pieces/104.glb",
+  "105": "pieces/105.glb",
+  "106": "pieces/106.glb",
+  "107": "pieces/107.glb",
+  "108": "pieces/108.glb",
+  "109": "pieces/109.glb",
+  "110": "pieces/110.glb",
+  "111": "pieces/111.glb",
+  "112": "pieces/112.glb",
+  "113": "pieces/113.glb",
+  "114": "pieces/114.glb",
+  "115": "pieces/115.glb",
+  "116": "pieces/116.glb",
+  "117": "pieces/117.glb",
+  "118": "pieces/118.glb",
+  "119": "pieces/119.glb",
+  "120": "pieces/120.glb",
+  "121": "pieces/121.glb",
+  "122": "pieces/122.glb",
+  "123": "pieces/123.glb",
+  "124": "pieces/124.glb",
+  "125": "pieces/125.glb",
+  "126": "pieces/126.glb",
+  "127": "pieces/127.glb",
+  "128": "pieces/128.glb",
+  "129": "pieces/129.glb",
+  "130": "pieces/130.glb",
+  "131": "pieces/131.glb",
+  "132": "pieces/132.glb",
+  "133": "pieces/133.glb",
+  "134": "pieces/134.glb",
+  "135": "pieces/135.glb",
+  "136": "pieces/136.glb",
+  "137": "pieces/137.glb",
+  "138": "pieces/138.glb",
+  "139": "pieces/139.glb",
+  "140": "pieces/140.glb",
+  "141": "pieces/141.glb",
+  "142": "pieces/142.glb",
+  "143": "pieces/143.glb",
+  "144": "pieces/144.glb",
+  "145": "pieces/145.glb",
+  "146": "pieces/146.glb",
+  "147": "pieces/147.glb",
+  "148": "pieces/148.glb",
+  "149": "pieces/149.glb",
+  "150": "pieces/150.glb",
+  "151": "pieces/151.glb",
+  "152": "pieces/152.glb",
+  "153": "pieces/153.glb",
+  "154": "pieces/154.glb",
+  "155": "pieces/155.glb",
+  "156": "pieces/156.glb",
+  "157": "pieces/157.glb",
+  "158": "pieces/158.glb",
+  "159": "pieces/159.glb",
+  "160": "pieces/160.glb",
+  "161": "pieces/161.glb",
+  "162": "pieces/162.glb",
+  "163": "pieces/163.glb",
+  "164": "pieces/164.glb",
+  "165": "pieces/165.glb",
+  "166": "pieces/166.glb",
+  "167": "pieces/167.glb",
+  "168": "pieces/168.glb",
+  "169": "pieces/169.glb",
+  "170": "pieces/170.glb",
+  "171": "pieces/171.glb",
+  "172": "pieces/172.glb",
+  "173": "pieces/173.glb",
+  "174": "pieces/174.glb",
+  "175": "pieces/175.glb",
+  "176": "pieces/176.glb",
+  "177": "pieces/177.glb",
+  "178": "pieces/178.glb",
+  "179": "pieces/179.glb",
+  "180": "pieces/180.glb",
+  "181": "pieces/181.glb",
+  "182": "pieces/182.glb",
+  "183": "pieces/183.glb",
+  "184": "pieces/184.glb",
+  "185": "pieces/185.glb",
+  "186": "pieces/186.glb",
+  "187": "pieces/187.glb",
+  "188": "pieces/188.glb",
+  "189": "pieces/189.glb",
+  "190": "pieces/190.glb",
+  "191": "pieces/191.glb",
+  "192": "pieces/192.glb",
+  "193": "pieces/193.glb",
+  "194": "pieces/194.glb",
+  "195": "pieces/195.glb",
+  "196": "pieces/196.glb",
+  "197": "pieces/197.glb",
+  "198": "pieces/198.glb",
+  "199": "pieces/199.glb",
+  "200": "pieces/200.glb",
+  "201": "pieces/201.glb",
+  "202": "pieces/202.glb",
+  "203": "pieces/203.glb",
+  "204": "pieces/204.glb",
+  "205": "pieces/205.glb",
+  "206": "pieces/206.glb",
+  "207": "pieces/207.glb",
+  "208": "pieces/208.glb",
+  "209": "pieces/209.glb",
+  "210": "pieces/210.glb",
+  "211": "pieces/211.glb",
+  "212": "pieces/212.glb",
+  "213": "pieces/213.glb",
+  "214": "pieces/214.glb",
+  "215": "pieces/215.glb",
+  "216": "pieces/216.glb",
+  "217": "pieces/217.glb",
+  "218": "pieces/218.glb",
+  "219": "pieces/219.glb",
+  "220": "pieces/220.glb",
+  "221": "pieces/221.glb",
+  "222": "pieces/222.glb",
+  "223": "pieces/223.glb",
+  "224": "pieces/224.glb",
+  "225": "pieces/225.glb",
+  "226": "pieces/226.glb",
+  "227": "pieces/227.glb",
+  "228": "pieces/228.glb",
+  "229": "pieces/229.glb",
+  "230": "pieces/230.glb",
+  "231": "pieces/231.glb",
+  "232": "pieces/232.glb",
+  "233": "pieces/233.glb",
+  "234": "pieces/234.glb",
+  "235": "pieces/235.glb",
+  "236": "pieces/236.glb",
+  "237": "pieces/237.glb",
+  "238": "pieces/238.glb",
+  "239": "pieces/239.glb",
+  "240": "pieces/240.glb",
+  "241": "pieces/241.glb",
+  "242": "pieces/242.glb",
+  "243": "pieces/243.glb",
+  "244": "pieces/244.glb",
+  "245": "pieces/245.glb",
+  "246": "pieces/246.glb",
+  "247": "pieces/247.glb",
+  "248": "pieces/248.glb",
+  "249": "pieces/249.glb",
+  "250": "pieces/250.glb",
+  "251": "pieces/251.glb",
+  "252": "pieces/252.glb",
+  "253": "pieces/253.glb",
+  "254": "pieces/254.glb",
+  "255": "pieces/255.glb",
+  "256": "pieces/256.glb",
+  "257": "pieces/257.glb",
+  "258": "pieces/258.glb",
+  "259": "pieces/259.glb",
+  "260": "pieces/260.glb",
+  "261": "pieces/261.glb",
+  "262": "pieces/262.glb",
+  "263": "pieces/263.glb",
+  "264": "pieces/264.glb",
+  "265": "pieces/265.glb",
+  "266": "pieces/266.glb",
+  "267": "pieces/267.glb",
+  "268": "pieces/268.glb",
+  "269": "pieces/269.glb",
+  "270": "pieces/270.glb",
+  "271": "pieces/271.glb",
+  "272": "pieces/272.glb",
+  "273": "pieces/273.glb",
+  "274": "pieces/274.glb",
+  "275": "pieces/275.glb",
+  "276": "pieces/276.glb",
+  "277": "pieces/277.glb",
+  "278": "pieces/278.glb",
+  "279": "pieces/279.glb",
+  "280": "pieces/280.glb",
+  "281": "pieces/281.glb",
+  "282": "pieces/282.glb",
+  "283": "pieces/283.glb",
+  "284": "pieces/284.glb",
+  "285": "pieces/285.glb",
+  "286": "pieces/286.glb",
+  "287": "pieces/287.glb",
+  "288": "pieces/288.glb",
+  "289": "pieces/289.glb",
+  "290": "pieces/290.glb",
+  "291": "pieces/291.glb",
+  "292": "pieces/292.glb",
+  "293": "pieces/293.glb",
+  "294": "pieces/294.glb",
+  "295": "pieces/295.glb",
+  "296": "pieces/296.glb",
+  "297": "pieces/297.glb",
+  "298": "pieces/298.glb",
+  "299": "pieces/299.glb",
+  "300": "pieces/300.glb",
+  "301": "pieces/301.glb",
+  "302": "pieces/302.glb",
+  "303": "pieces/303.glb",
+  "304": "pieces/304.glb",
+  "305": "pieces/305.glb",
+  "306": "pieces/306.glb",
+  "307": "pieces/307.glb",
+  "308": "pieces/308.glb",
+  "309": "pieces/309.glb",
+  "310": "pieces/310.glb",
+  "311": "pieces/311.glb",
+  "312": "pieces/312.glb",
+  "313": "pieces/313.glb",
+  "314": "pieces/314.glb",
+  "315": "pieces/315.glb",
+  "316": "pieces/316.glb",
+  "317": "pieces/317.glb",
+  "318": "pieces/318.glb",
+  "319": "pieces/319.glb",
+  "320": "pieces/320.glb",
+  "321": "pieces/321.glb",
+  "322": "pieces/322.glb",
+  "323": "pieces/323.glb",
+  "324": "pieces/324.glb",
+  "325": "pieces/325.glb",
+  "326": "pieces/326.glb",
+  "327": "pieces/327.glb",
+  "328": "pieces/328.glb",
+  "329": "pieces/329.glb",
+  "330": "pieces/330.glb",
+  "331": "pieces/331.glb",
+  "332": "pieces/332.glb",
+  "333": "pieces/333.glb",
+  "334": "pieces/334.glb",
+  "335": "pieces/335.glb",
+  "336": "pieces/336.glb",
+  "337": "pieces/337.glb",
+  "338": "pieces/338.glb",
+  "339": "pieces/339.glb",
+  "340": "pieces/340.glb",
+  "341": "pieces/341.glb"
+ }
+}

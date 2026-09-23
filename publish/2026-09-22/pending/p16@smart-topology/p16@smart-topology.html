@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="zh"><head><meta charset="utf-8"><title>p16@smart-topology · 检出明细</title>
+<link rel="icon" href="data:,">
+<style>
+body { font-family: "Segoe UI","Microsoft YaHei",sans-serif; margin:0;
+       background:#f5f6f8; color:#222; }
+header { background:#2c3440; color:#fff; padding:14px 24px; }
+header h1 { font-size:18px; margin:0; }
+header .sub { color:#aeb8c4; font-size:13px; margin-top:4px; }
+main { padding:16px 24px; max-width:1600px; margin:0 auto; }
+.boxes { display:flex; gap:10px; margin:12px 0; flex-wrap:wrap; }
+.boxes span { padding:8px 14px; border-radius:8px; color:#fff; font-weight:600;
+              font-size:14px; }
+.b-float { background:#b03a3a; } .b-coloc { background:#5b6ac5; }
+.b-other { background:#d18b1f; } .b-iface { background:#66707d; }
+.b-pend { background:#d18b1f; } .b-pass { background:#2e8b57; }
+.b-failx { background:#b03a3a; }
+.summary { font-size:15px; line-height:1.7; background:#fff; border-radius:8px;
+           padding:12px 16px; box-shadow:0 1px 4px rgba(0,0,0,.06); }
+h2 { font-size:16px; margin:22px 0 8px; }
+table { border-collapse:collapse; font-size:13px; background:#fff;
+        width:100%; table-layout:fixed; }
+td,th { border:1px solid #dde; padding:4px 10px; text-align:left; }
+.card { background:#fff; border-radius:10px; padding:12px 14px; margin:10px 0;
+        box-shadow:0 1px 4px rgba(0,0,0,.08); }
+.row { display:flex; flex-wrap:wrap; gap:8px; align-items:flex-start; }
+.row img { border-radius:6px; background:#ddd; }
+/* 明细表：4 列（组件编号/单件外观/定位图/问题）。图必须限宽，否则会把文字列挤成竖条
+   （2026-09-23：图证补齐后就出现过每行 1~2 个字的情况）。
+   尺寸策略：固定列宽（table-layout:fixed）+ 图 `max-width:100%; max-height:150px`，
+   于是宽屏下图按 150px 高显示（组件独立渲染图 4:1 → 约 600px，定位图双机位 2.67:1 →
+   约 400px），窄屏下按列宽等比缩小而不是把表格撑出横向滚动条。 */
+table col.c-rank { width:72px; }
+table col.c-crop { width:38%; }
+table col.c-loc { width:26%; }
+table td { vertical-align:top; overflow-wrap:anywhere; }
+table th { white-space:nowrap; }
+table td img { max-width:100%; max-height:150px; width:auto; height:auto;
+               display:block; border-radius:4px; background:#ddd; }
+table td .meta { margin-top:4px; color:#7a818c; }
+.review-card { border-left:4px solid #d18b1f; }
+.meta { color:#666; font-size:13px; }
+a { color:#3a5fcd; text-decoration:none; }
+.badge { display:inline-block; border-radius:4px; padding:1px 8px; font-size:12px;
+         background:#eef1f5; margin-right:6px; }
+.disp-pass { color:#2e8b57; font-weight:700; }
+.disp-fail { color:#b03a3a; font-weight:700; }
+.disp-pending { color:#5b6ac5; font-weight:700; }
+details { margin:8px 0; }
+button { padding:4px 12px; margin-right:6px; border:1px solid #99a; border-radius:6px;
+         background:#fff; cursor:pointer; }
+button.on { background:#2c3440; color:#fff; }
+input[type=text] { width:360px; padding:4px 8px; }
+</style></head><body>
+<header><h1>p16@smart-topology <span class="badge" style="background:#465">待人工裁决</span></h1>
+<div class="sub">对象：<b>家具</b> · "a wooden beach lounge chair"</div>
+<div class="sub">待复核检出 8 条 ·
+<a style="color:#9fc" href="../../index.html">← 返回队列</a></div></header>
+<main>
+<div class="card" style="border-left:4px solid #5b6ac5">
+  <b>检测结论</b>　本模型共 75 个组件（几何拆分口径，编号按面数降序，与下表同源）。待人工复核 8 条——组件重叠 4 条、疑似碎屑 4 条（低优先）。其中：重叠是两套面叠在同一位置、从不同角度看会来回闪烁；疑似碎屑是紧贴主体、与设计件难以区分的小块。另有部件贴合界面 5 处——多组件拆分时对接处的顶点被两件共用，属拆件导出的正常形态（不计入复核队列），不是缺陷。
+  <div class="meta" style="margin-top:6px">口径与来源：数字来自<b>几何拆分（trimesh）</b>口径的检出结果；
+    图由 <b>Blender 5.0.1 headless 渲染</b>。另：同一模型在 Blender 焊接口径下为 65 个组件（与几何拆分口径的 75 个不同）——两套引擎的焊接算法不同（邻近合并 vs 量化去重），细碎片的归并结果因此有差异，不是错误；编号与图证一律取几何拆分口径。</div>
+</div>
+<div class="boxes">
+  <span class="b-float">悬浮组件 0</span>
+  <span class="b-coloc">组件重叠 4</span>
+  <span class="b-other">疑似碎屑（低优先）4</span>
+  <span class="b-iface">部件贴合界面（正常形态）5</span>
+</div>
+
+<!-- 入库裁决：整模型一个结论（2026-09-23 提到首屏，按用户口径不做逐条控件） -->
+<div class="card review-card" id="review-card">
+  <div class="row" style="align-items:center;gap:14px">
+    <div style="flex:1">
+      <b>入库裁决</b>　<span class="disp-pending">待人工裁决</span>
+      <div class="meta" style="margin-top:4px">待复核检出 8 条</div>
+    </div>
+    <div id="review-box" data-key="p16@smart-topology">
+      <button data-d="pass">入库</button>
+      <button data-d="fail">不入库</button>
+      <button data-d="pending">维持待定</button>
+      <input type="text" id="review-reason" placeholder="裁决理由（可选）">
+    </div>
+  </div>
+  <div class="meta" id="review-msg"></div>
+</div>
+
+<h2>问题组件（8 条待人工复核）</h2>
+<p class="meta">编号 = 组件在几何拆分（trimesh）口径下的序号，按面数降序、0 为最大件，与组件独立渲染图、逐件 GLB 文件名同源。本表只报告不修改——删 / 留的决定在首屏「入库裁决」卡上按模型给出。问题分三类：与其他组件有表面积重叠（渲染时来回闪烁）、整块脱离主体悬浮、疑似碎屑（紧贴主体且与设计件难区分，低优先）。表中百分比的分母：悬浮类的距离与阈值取<b>整体 AABB 对角线</b>（整个模型外接长方体的对角线）；疑似碎屑的尺寸比与间隙取<b>主体 AABB 对角线</b>（最大组件的对应值）；重叠率是表面积之比，与尺寸无关。</p>
+
+<table><colgroup><col class="c-rank"><col class="c-crop"><col class="c-loc"><col class="c-prob"></colgroup>
+<tr><th>组件编号</th><th>单件外观</th><th>定位图</th><th>问题</th></tr>
+<tr>
+<td>#70<div class="meta">2 面</div></td>
+<td><img src="images/crop_70.jpg"></td>
+<td><img src="images/locator_70.jpg"></td>
+<td>与组件 #21 有 100% 的表面积重叠——两套面叠在同一位置，从不同角度看会来回闪烁<div class="meta">判据：面积重叠率 100.0% ≥ 60%（两套面真重合）</div></td>
+</tr><tr>
+<td>#71<div class="meta">2 面</div></td>
+<td><img src="images/crop_71.jpg"></td>
+<td><img src="images/locator_71.jpg"></td>
+<td>与组件 #21 有 85% 的表面积重叠——两套面叠在同一位置，从不同角度看会来回闪烁<div class="meta">判据：面积重叠率 85.1% ≥ 60%（两套面真重合）</div></td>
+</tr><tr>
+<td>#73<div class="meta">2 面</div></td>
+<td><img src="images/crop_73.jpg"></td>
+<td><img src="images/locator_73.jpg"></td>
+<td>与组件 #42 重叠 57%——可能只是拆件的正常贴合，也可能是真重叠，需要目检确认<div class="meta">判据：面积重叠率 57.0% 处于[20%, 60%]，需要人工确认正确性</div></td>
+</tr><tr>
+<td>#74<div class="meta">1 面</div></td>
+<td><img src="images/crop_74.jpg"></td>
+<td><img src="images/locator_74.jpg"></td>
+<td>与组件 #3 有 100% 的表面积重叠——两套面叠在同一位置，从不同角度看会来回闪烁<div class="meta">判据：面积重叠率 100.0% ≥ 60%（两套面真重合）</div></td>
+</tr><tr>
+<td>#40<div class="meta">129 面</div></td>
+<td><img src="images/crop_40.jpg"></td>
+<td><img src="images/locator_40.jpg"></td>
+<td>疑似碎屑（低优先）：它紧贴主体、尺寸约为主体 AABB 对角线的 6%，也没有尺寸同类的设计件——也可能就是设计件本身，需要人工确认<div class="meta">尺寸比 6.1%（该组件 / 主体 AABB） · 与主体相距 1.0% 主体 AABB · 同尺寸同类件数 0</div></td>
+</tr><tr>
+<td>#41<div class="meta">128 面</div></td>
+<td><img src="images/crop_41.jpg"></td>
+<td><img src="images/locator_41.jpg"></td>
+<td>疑似碎屑（低优先）：它紧贴主体、尺寸约为主体 AABB 对角线的 6%，也没有尺寸同类的设计件——也可能就是设计件本身，需要人工确认<div class="meta">尺寸比 6.2%（该组件 / 主体 AABB） · 与主体相距 1.1% 主体 AABB · 同尺寸同类件数 0</div></td>
+</tr><tr>
+<td>#62<div class="meta">40 面</div></td>
+<td><img src="images/crop_62.jpg"></td>
+<td><img src="images/locator_62.jpg"></td>
+<td>疑似碎屑（低优先）：它紧贴主体、尺寸约为主体 AABB 对角线的 2%，也没有尺寸同类的设计件——也可能就是设计件本身，需要人工确认<div class="meta">尺寸比 2.2%（该组件 / 主体 AABB） · 与主体相距 0.3% 主体 AABB · 同尺寸同类件数 0</div></td>
+</tr><tr>
+<td>#63<div class="meta">40 面</div></td>
+<td><img src="images/crop_63.jpg"></td>
+<td><img src="images/locator_63.jpg"></td>
+<td>疑似碎屑（低优先）：它紧贴主体、尺寸约为主体 AABB 对角线的 2%，也没有尺寸同类的设计件——也可能就是设计件本身，需要人工确认<div class="meta">尺寸比 2.0%（该组件 / 主体 AABB） · 与主体相距 0.2% 主体 AABB · 同尺寸同类件数 0</div></td>
+</tr></table>
+<p class="meta">怎么读这两列图——<b>组件独立渲染</b>（表头「单件外观」列）：把该组件单独拿出来渲的三视图，回答"它长什么样"；
+<b>定位图</b>：左面板给出它在整机里的位置（灰底是其余组件，半透明；<span style="color:#c0266e">环</span>圈出该件），
+右面板贴近看它与邻居的关系。定位图配色：<span style="color:#b8860b">● 琥珀</span> = 该件未重合的部分；
+<span style="color:#c0266e">● 品红</span> = 与邻居表面在容差内贴合（重合）的那一片；
+<span style="color:#1f8a9c">● 青</span> = 邻居组件。<b>极小件例外</b>：整机面板里可能只有几个像素，
+此时以左侧的组件独立渲染为准。</p>
+
+<details><summary style="cursor:pointer">结构核实 · 线框三视图（可辨三角面密度）</summary>
+<div class="row">
+<img src="images/wire_front.png" style="width:410px"><img src="images/wire_top.png" style="width:410px"><img src="images/wire_right.png" style="width:410px">
+
+</div>
+</details>
+<script>
+document.querySelectorAll("#review-box button").forEach(b => b.onclick = async () => {
+  const msg = document.getElementById("review-msg");
+  try {
+    const resp = await fetch("/api/disposition", {method: "POST",
+      headers: {"Content-Type": "application/json"},
+      body: JSON.stringify({key: document.getElementById("review-box").dataset.key,
+        disposition: b.dataset.d,
+        reason: document.getElementById("review-reason").value})});
+    if (!resp.ok) throw new Error("HTTP " + resp.status);
+    msg.textContent = "已提交，队列刷新中…";
+    setTimeout(() => location.href = "../../index.html", 800);
+  } catch (e) {
+    msg.textContent = "当前为离线快照（只读）：裁决请在本机运行 python -m meshq.tools.review_server";
+  }
+});
+</script>
+</main></body></html>

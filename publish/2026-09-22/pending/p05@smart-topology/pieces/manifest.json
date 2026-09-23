@@ -1,0 +1,247 @@
+{
+ "version": 1,
+ "weld_digits": 5,
+ "n_pieces": 39,
+ "source": {
+  "size": 292028,
+  "mtime_ns": 1789996612055756500
+ },
+ "pieces": [
+  {
+   "rank": 0,
+   "n_faces": 5442,
+   "glb": "pieces/0.glb"
+  },
+  {
+   "rank": 1,
+   "n_faces": 896,
+   "glb": "pieces/1.glb"
+  },
+  {
+   "rank": 2,
+   "n_faces": 882,
+   "glb": "pieces/2.glb"
+  },
+  {
+   "rank": 3,
+   "n_faces": 842,
+   "glb": "pieces/3.glb"
+  },
+  {
+   "rank": 4,
+   "n_faces": 781,
+   "glb": "pieces/4.glb"
+  },
+  {
+   "rank": 5,
+   "n_faces": 767,
+   "glb": "pieces/5.glb"
+  },
+  {
+   "rank": 6,
+   "n_faces": 540,
+   "glb": "pieces/6.glb"
+  },
+  {
+   "rank": 7,
+   "n_faces": 534,
+   "glb": "pieces/7.glb"
+  },
+  {
+   "rank": 8,
+   "n_faces": 508,
+   "glb": "pieces/8.glb"
+  },
+  {
+   "rank": 9,
+   "n_faces": 462,
+   "glb": "pieces/9.glb"
+  },
+  {
+   "rank": 10,
+   "n_faces": 412,
+   "glb": "pieces/10.glb"
+  },
+  {
+   "rank": 11,
+   "n_faces": 412,
+   "glb": "pieces/11.glb"
+  },
+  {
+   "rank": 12,
+   "n_faces": 320,
+   "glb": "pieces/12.glb"
+  },
+  {
+   "rank": 13,
+   "n_faces": 260,
+   "glb": "pieces/13.glb"
+  },
+  {
+   "rank": 14,
+   "n_faces": 238,
+   "glb": "pieces/14.glb"
+  },
+  {
+   "rank": 15,
+   "n_faces": 238,
+   "glb": "pieces/15.glb"
+  },
+  {
+   "rank": 16,
+   "n_faces": 232,
+   "glb": "pieces/16.glb"
+  },
+  {
+   "rank": 17,
+   "n_faces": 226,
+   "glb": "pieces/17.glb"
+  },
+  {
+   "rank": 18,
+   "n_faces": 216,
+   "glb": "pieces/18.glb"
+  },
+  {
+   "rank": 19,
+   "n_faces": 214,
+   "glb": "pieces/19.glb"
+  },
+  {
+   "rank": 20,
+   "n_faces": 200,
+   "glb": "pieces/20.glb"
+  },
+  {
+   "rank": 21,
+   "n_faces": 190,
+   "glb": "pieces/21.glb"
+  },
+  {
+   "rank": 22,
+   "n_faces": 148,
+   "glb": "pieces/22.glb"
+  },
+  {
+   "rank": 23,
+   "n_faces": 148,
+   "glb": "pieces/23.glb"
+  },
+  {
+   "rank": 24,
+   "n_faces": 106,
+   "glb": "pieces/24.glb"
+  },
+  {
+   "rank": 25,
+   "n_faces": 102,
+   "glb": "pieces/25.glb"
+  },
+  {
+   "rank": 26,
+   "n_faces": 98,
+   "glb": "pieces/26.glb"
+  },
+  {
+   "rank": 27,
+   "n_faces": 96,
+   "glb": "pieces/27.glb"
+  },
+  {
+   "rank": 28,
+   "n_faces": 84,
+   "glb": "pieces/28.glb"
+  },
+  {
+   "rank": 29,
+   "n_faces": 78,
+   "glb": "pieces/29.glb"
+  },
+  {
+   "rank": 30,
+   "n_faces": 60,
+   "glb": "pieces/30.glb"
+  },
+  {
+   "rank": 31,
+   "n_faces": 58,
+   "glb": "pieces/31.glb"
+  },
+  {
+   "rank": 32,
+   "n_faces": 54,
+   "glb": "pieces/32.glb"
+  },
+  {
+   "rank": 33,
+   "n_faces": 50,
+   "glb": "pieces/33.glb"
+  },
+  {
+   "rank": 34,
+   "n_faces": 49,
+   "glb": "pieces/34.glb"
+  },
+  {
+   "rank": 35,
+   "n_faces": 49,
+   "glb": "pieces/35.glb"
+  },
+  {
+   "rank": 36,
+   "n_faces": 48,
+   "glb": "pieces/36.glb"
+  },
+  {
+   "rank": 37,
+   "n_faces": 48,
+   "glb": "pieces/37.glb"
+  },
+  {
+   "rank": 38,
+   "n_faces": 9,
+   "glb": "pieces/38.glb"
+  }
+ ],
+ "glbs": {
+  "0": "pieces/0.glb",
+  "1": "pieces/1.glb",
+  "2": "pieces/2.glb",
+  "3": "pieces/3.glb",
+  "4": "pieces/4.glb",
+  "5": "pieces/5.glb",
+  "6": "pieces/6.glb",
+  "7": "pieces/7.glb",
+  "8": "pieces/8.glb",
+  "9": "pieces/9.glb",
+  "10": "pieces/10.glb",
+  "11": "pieces/11.glb",
+  "12": "pieces/12.glb",
+  "13": "pieces/13.glb",
+  "14": "pieces/14.glb",
+  "15": "pieces/15.glb",
+  "16": "pieces/16.glb",
+  "17": "pieces/17.glb",
+  "18": "pieces/18.glb",
+  "19": "pieces/19.glb",
+  "20": "pieces/20.glb",
+  "21": "pieces/21.glb",
+  "22": "pieces/22.glb",
+  "23": "pieces/23.glb",
+  "24": "pieces/24.glb",
+  "25": "pieces/25.glb",
+  "26": "pieces/26.glb",
+  "27": "pieces/27.glb",
+  "28": "pieces/28.glb",
+  "29": "pieces/29.glb",
+  "30": "pieces/30.glb",
+  "31": "pieces/31.glb",
+  "32": "pieces/32.glb",
+  "33": "pieces/33.glb",
+  "34": "pieces/34.glb",
+  "35": "pieces/35.glb",
+  "36": "pieces/36.glb",
+  "37": "pieces/37.glb",
+  "38": "pieces/38.glb"
+ }
+}

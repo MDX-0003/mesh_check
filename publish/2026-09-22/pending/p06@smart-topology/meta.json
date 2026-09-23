@@ -1,0 +1,12 @@
+{
+ "key": "p06@smart-topology",
+ "pid": "p06",
+ "preset": "smart-topology",
+ "prompt": "a pair of red basketball sneakers",
+ "category": "footwear",
+ "expect_floater": false,
+ "task_id": "01a0c41c-bf1e-73e0-aa88-1ccf4c5bb9d9",
+ "status": "SUCCEEDED",
+ "credits": 5,
+ "has_glb": true
+}

@@ -1,0 +1,12 @@
+{
+ "key": "p19@smart-topology",
+ "pid": "p19",
+ "preset": "smart-topology",
+ "prompt": "a cartoon character holding a ball above their head with both hands",
+ "category": "float-inducing",
+ "expect_floater": true,
+ "task_id": "01a0c421-105e-745c-a176-4f581a78c64d",
+ "status": "SUCCEEDED",
+ "credits": 5,
+ "has_glb": true
+}

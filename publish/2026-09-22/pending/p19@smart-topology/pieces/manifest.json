@@ -1,0 +1,163 @@
+{
+ "version": 1,
+ "weld_digits": 5,
+ "n_pieces": 25,
+ "source": {
+  "size": 280580,
+  "mtime_ns": 1789996911746192800
+ },
+ "pieces": [
+  {
+   "rank": 0,
+   "n_faces": 3889,
+   "glb": "pieces/0.glb"
+  },
+  {
+   "rank": 1,
+   "n_faces": 1544,
+   "glb": "pieces/1.glb"
+  },
+  {
+   "rank": 2,
+   "n_faces": 1510,
+   "glb": "pieces/2.glb"
+  },
+  {
+   "rank": 3,
+   "n_faces": 1396,
+   "glb": "pieces/3.glb"
+  },
+  {
+   "rank": 4,
+   "n_faces": 1311,
+   "glb": "pieces/4.glb"
+  },
+  {
+   "rank": 5,
+   "n_faces": 902,
+   "glb": "pieces/5.glb"
+  },
+  {
+   "rank": 6,
+   "n_faces": 870,
+   "glb": "pieces/6.glb"
+  },
+  {
+   "rank": 7,
+   "n_faces": 862,
+   "glb": "pieces/7.glb"
+  },
+  {
+   "rank": 8,
+   "n_faces": 598,
+   "glb": "pieces/8.glb"
+  },
+  {
+   "rank": 9,
+   "n_faces": 591,
+   "glb": "pieces/9.glb"
+  },
+  {
+   "rank": 10,
+   "n_faces": 471,
+   "glb": "pieces/10.glb"
+  },
+  {
+   "rank": 11,
+   "n_faces": 425,
+   "glb": "pieces/11.glb"
+  },
+  {
+   "rank": 12,
+   "n_faces": 113,
+   "glb": "pieces/12.glb"
+  },
+  {
+   "rank": 13,
+   "n_faces": 110,
+   "glb": "pieces/13.glb"
+  },
+  {
+   "rank": 14,
+   "n_faces": 100,
+   "glb": "pieces/14.glb"
+  },
+  {
+   "rank": 15,
+   "n_faces": 95,
+   "glb": "pieces/15.glb"
+  },
+  {
+   "rank": 16,
+   "n_faces": 93,
+   "glb": "pieces/16.glb"
+  },
+  {
+   "rank": 17,
+   "n_faces": 61,
+   "glb": "pieces/17.glb"
+  },
+  {
+   "rank": 18,
+   "n_faces": 58,
+   "glb": "pieces/18.glb"
+  },
+  {
+   "rank": 19,
+   "n_faces": 55,
+   "glb": "pieces/19.glb"
+  },
+  {
+   "rank": 20,
+   "n_faces": 49,
+   "glb": "pieces/20.glb"
+  },
+  {
+   "rank": 21,
+   "n_faces": 48,
+   "glb": "pieces/21.glb"
+  },
+  {
+   "rank": 22,
+   "n_faces": 46,
+   "glb": "pieces/22.glb"
+  },
+  {
+   "rank": 23,
+   "n_faces": 46,
+   "glb": "pieces/23.glb"
+  },
+  {
+   "rank": 24,
+   "n_faces": 45,
+   "glb": "pieces/24.glb"
+  }
+ ],
+ "glbs": {
+  "0": "pieces/0.glb",
+  "1": "pieces/1.glb",
+  "2": "pieces/2.glb",
+  "3": "pieces/3.glb",
+  "4": "pieces/4.glb",
+  "5": "pieces/5.glb",
+  "6": "pieces/6.glb",
+  "7": "pieces/7.glb",
+  "8": "pieces/8.glb",
+  "9": "pieces/9.glb",
+  "10": "pieces/10.glb",
+  "11": "pieces/11.glb",
+  "12": "pieces/12.glb",
+  "13": "pieces/13.glb",
+  "14": "pieces/14.glb",
+  "15": "pieces/15.glb",
+  "16": "pieces/16.glb",
+  "17": "pieces/17.glb",
+  "18": "pieces/18.glb",
+  "19": "pieces/19.glb",
+  "20": "pieces/20.glb",
+  "21": "pieces/21.glb",
+  "22": "pieces/22.glb",
+  "23": "pieces/23.glb",
+  "24": "pieces/24.glb"
+ }
+}

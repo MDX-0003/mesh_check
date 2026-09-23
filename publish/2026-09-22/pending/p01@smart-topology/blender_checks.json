@@ -1,0 +1,98 @@
+{
+ "source": "model.glb",
+ "n_verts": 2152,
+ "n_faces": 4254,
+ "boundary_edges": 33,
+ "non_manifold_edges": 6,
+ "self_intersect_faces": 515,
+ "zero_area_faces": 9,
+ "zero_length_edges": 0,
+ "n_pieces": 8,
+ "n_small_pieces": 0,
+ "fragment_face_ratio": 0.0,
+ "pieces": [
+  {
+   "n_verts": 410,
+   "n_faces": 816,
+   "diag": 0.7664625685722489,
+   "volume": 0.008947332389652729,
+   "diag_ratio_to_main": 0.7725500973421437,
+   "is_small": false
+  },
+  {
+   "n_verts": 366,
+   "n_faces": 728,
+   "diag": 0.6940704997227282,
+   "volume": 0.02104217652231455,
+   "diag_ratio_to_main": 0.6995830639478383,
+   "is_small": false
+  },
+  {
+   "n_verts": 301,
+   "n_faces": 599,
+   "diag": 0.9917284286457064,
+   "volume": 0.017882220447063446,
+   "diag_ratio_to_main": 0.9996051020657135,
+   "is_small": false
+  },
+  {
+   "n_verts": 297,
+   "n_faces": 591,
+   "diag": 0.9921202148691222,
+   "volume": 0.01828479766845703,
+   "diag_ratio_to_main": 1.0,
+   "is_small": false
+  },
+  {
+   "n_verts": 258,
+   "n_faces": 513,
+   "diag": 0.6439990996834284,
+   "volume": 0.015156727284193039,
+   "diag_ratio_to_main": 0.6491139783583414,
+   "is_small": false
+  },
+  {
+   "n_verts": 184,
+   "n_faces": 354,
+   "diag": 0.5596219183807358,
+   "volume": 0.0017454791814088821,
+   "diag_ratio_to_main": 0.5640666423217268,
+   "is_small": false
+  },
+  {
+   "n_verts": 183,
+   "n_faces": 352,
+   "diag": 0.5591824503839358,
+   "volume": 0.0016855672001838684,
+   "diag_ratio_to_main": 0.563623683907803,
+   "is_small": false
+  },
+  {
+   "n_verts": 153,
+   "n_faces": 301,
+   "diag": 0.4493138088324525,
+   "volume": 0.0009528300724923611,
+   "diag_ratio_to_main": 0.4528824250312496,
+   "is_small": false
+  }
+ ],
+ "thresholds": {
+  "diag_ratio": 0.1,
+  "weld": 0.0001,
+  "zero": 0.0001
+ },
+ "blender_version": "5.0.1",
+ "normalize": {
+  "scale_applied": 1.0,
+  "raw_bbox_min": [
+   -0.30078125,
+   -0.3203125,
+   -0.5
+  ],
+  "raw_bbox_max": [
+   0.302734375,
+   0.322265625,
+   0.5
+  ]
+ }
+}

@@ -1,0 +1,28 @@
+# 设备相关配置（含 API key，绝不入库）
+config.toml
+
+# Python / uv
+.venv/
+__pycache__/
+*.pyc
+.pytest_cache/
+
+# 管线产物（大文件，可由代码重建）。前导斜杠必须保留：无锚点的 `data/`
+# 会连带忽略 publish/<date>/data/（快照自带的附录目录），上一版即踩此坑。
+/data/
+
+# Claude 本地状态
+.claude/settings.local.json
+
+# 浏览器工具（browser-use / playwright）的截图与快照：审阅产物，不入库
+.playwright-mcp/
+
+# 本机交付/工作目录（可由 06_deliver 从 data/ 重建）
+/results/
+
+# 注意：publish/ 是被追踪的发布快照（离线只读网页，供 clone 后直接打开），
+# 故此处**不**忽略它。生成方式见 README「离线快照」一节。
+
+# 内部工作日志与方案文档（plan / handoff / analysis / knowledge、代码流程问答等）：
+# 不随公开仓分发，整体忽略，本机保留。锚定根级，避免连带忽略别处的 docs/。
+/docs/

@@ -1,0 +1,43 @@
+{
+ "version": 1,
+ "weld_digits": 5,
+ "n_pieces": 5,
+ "source": {
+  "size": 300212,
+  "mtime_ns": 1789996563898114300
+ },
+ "pieces": [
+  {
+   "rank": 0,
+   "n_faces": 4274,
+   "glb": "pieces/0.glb"
+  },
+  {
+   "rank": 1,
+   "n_faces": 4162,
+   "glb": "pieces/1.glb"
+  },
+  {
+   "rank": 2,
+   "n_faces": 4072,
+   "glb": "pieces/2.glb"
+  },
+  {
+   "rank": 3,
+   "n_faces": 3438,
+   "glb": "pieces/3.glb"
+  },
+  {
+   "rank": 4,
+   "n_faces": 665,
+   "glb": "pieces/4.glb"
+  }
+ ],
+ "glbs": {
+  "0": "pieces/0.glb",
+  "1": "pieces/1.glb",
+  "2": "pieces/2.glb",
+  "3": "pieces/3.glb",
+  "4": "pieces/4.glb"
+ }
+}

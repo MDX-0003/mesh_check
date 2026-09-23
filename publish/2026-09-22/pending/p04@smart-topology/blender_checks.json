@@ -1,0 +1,202 @@
+{
+ "source": "model.glb",
+ "n_verts": 7582,
+ "n_faces": 14051,
+ "boundary_edges": 1265,
+ "non_manifold_edges": 32,
+ "self_intersect_faces": 2816,
+ "zero_area_faces": 23,
+ "zero_length_edges": 0,
+ "n_pieces": 21,
+ "n_small_pieces": 5,
+ "fragment_face_ratio": 0.095153,
+ "pieces": [
+  {
+   "n_verts": 1319,
+   "n_faces": 2514,
+   "diag": 0.1735530777469552,
+   "volume": 0.000994937727227807,
+   "diag_ratio_to_main": 0.28438007159881207,
+   "is_small": false
+  },
+  {
+   "n_verts": 1236,
+   "n_faces": 2287,
+   "diag": 0.25721894921323,
+   "volume": 0.0010466619569342583,
+   "diag_ratio_to_main": 0.4214730395071479,
+   "is_small": false
+  },
+  {
+   "n_verts": 940,
+   "n_faces": 1901,
+   "diag": 0.6102856531796449,
+   "volume": 0.043375687615480274,
+   "diag_ratio_to_main": 1.0,
+   "is_small": false
+  },
+  {
+   "n_verts": 620,
+   "n_faces": 1236,
+   "diag": 0.08750017115031261,
+   "volume": 0.00010669376933947206,
+   "diag_ratio_to_main": 0.14337576296350504,
+   "is_small": false
+  },
+  {
+   "n_verts": 571,
+   "n_faces": 1055,
+   "diag": 0.07089595317428762,
+   "volume": 6.66111009195447e-05,
+   "diag_ratio_to_main": 0.11616847422991697,
+   "is_small": false
+  },
+  {
+   "n_verts": 435,
+   "n_faces": 840,
+   "diag": 0.1689093226207141,
+   "volume": 0.0008313171565532684,
+   "diag_ratio_to_main": 0.27677092151958815,
+   "is_small": false
+  },
+  {
+   "n_verts": 330,
+   "n_faces": 632,
+   "diag": 0.035512234503731435,
+   "volume": 8.579809218645096e-06,
+   "diag_ratio_to_main": 0.05818952865549009,
+   "is_small": true
+  },
+  {
+   "n_verts": 331,
+   "n_faces": 617,
+   "diag": 0.2008723116484423,
+   "volume": 0.0012084982881788164,
+   "diag_ratio_to_main": 0.3291447383727258,
+   "is_small": false
+  },
+  {
+   "n_verts": 263,
+   "n_faces": 522,
+   "diag": 0.5753942899982193,
+   "volume": 0.008656159043312073,
+   "diag_ratio_to_main": 0.9428278167778673,
+   "is_small": false
+  },
+  {
+   "n_verts": 222,
+   "n_faces": 404,
+   "diag": 0.10203676264359887,
+   "volume": 0.00017350539565086365,
+   "diag_ratio_to_main": 0.16719508661555105,
+   "is_small": false
+  },
+  {
+   "n_verts": 235,
+   "n_faces": 378,
+   "diag": 0.08052653857931241,
+   "volume": 9.212130680680275e-05,
+   "diag_ratio_to_main": 0.1319489294230688,
+   "is_small": false
+  },
+  {
+   "n_verts": 164,
+   "n_faces": 324,
+   "diag": 0.0252742300248328,
+   "volume": 2.995133399963379e-06,
+   "diag_ratio_to_main": 0.04141377057309428,
+   "is_small": true
+  },
+  {
+   "n_verts": 176,
+   "n_faces": 282,
+   "diag": 0.09935173674065184,
+   "volume": 6.618350744247437e-05,
+   "diag_ratio_to_main": 0.16279546507937728,
+   "is_small": false
+  },
+  {
+   "n_verts": 174,
+   "n_faces": 262,
+   "diag": 0.042792391823205496,
+   "volume": 1.1165859177708626e-05,
+   "diag_ratio_to_main": 0.07011862658126267,
+   "is_small": true
+  },
+  {
+   "n_verts": 185,
+   "n_faces": 251,
+   "diag": 0.1301512847539483,
+   "volume": 0.00027924461755901575,
+   "diag_ratio_to_main": 0.21326289431161952,
+   "is_small": false
+  },
+  {
+   "n_verts": 101,
+   "n_faces": 165,
+   "diag": 0.08213162100179955,
+   "volume": 9.897150448523462e-05,
+   "diag_ratio_to_main": 0.13457898047231848,
+   "is_small": false
+  },
+  {
+   "n_verts": 108,
+   "n_faces": 143,
+   "diag": 0.06296852452543039,
+   "volume": 3.4889671951532364e-05,
+   "diag_ratio_to_main": 0.10317877242789264,
+   "is_small": false
+  },
+  {
+   "n_verts": 64,
+   "n_faces": 104,
+   "diag": 0.027934542314034968,
+   "volume": 2.568791387602687e-06,
+   "diag_ratio_to_main": 0.04577289695160522,
+   "is_small": true
+  },
+  {
+   "n_verts": 53,
+   "n_faces": 70,
+   "diag": 0.3879124924334072,
+   "volume": 0.0009472738456679508,
+   "diag_ratio_to_main": 0.6356244660387265,
+   "is_small": false
+  },
+  {
+   "n_verts": 41,
+   "n_faces": 49,
+   "diag": 0.2610610144923145,
+   "volume": 0.0004842156049562618,
+   "diag_ratio_to_main": 0.42776855908731,
+   "is_small": false
+  },
+  {
+   "n_verts": 14,
+   "n_faces": 15,
+   "diag": 0.03783490518141912,
+   "volume": 5.989568307995796e-07,
+   "diag_ratio_to_main": 0.061995403274344975,
+   "is_small": true
+  }
+ ],
+ "thresholds": {
+  "diag_ratio": 0.1,
+  "weld": 0.0001,
+  "zero": 0.0001
+ },
+ "blender_version": "5.0.1",
+ "normalize": {
+  "scale_applied": 1.0,
+  "raw_bbox_min": [
+   -0.38671875,
+   -0.2021484375,
+   -0.5
+  ],
+  "raw_bbox_max": [
+   0.38671875,
+   0.2041015625,
+   0.5
+  ]
+ }
+}

@@ -1,0 +1,58 @@
+{
+ "source": "model.glb",
+ "n_verts": 8331,
+ "n_faces": 16601,
+ "boundary_edges": 130,
+ "non_manifold_edges": 1,
+ "self_intersect_faces": 1273,
+ "zero_area_faces": 7,
+ "zero_length_edges": 0,
+ "n_pieces": 3,
+ "n_small_pieces": 0,
+ "fragment_face_ratio": 0.0,
+ "pieces": [
+  {
+   "n_verts": 4154,
+   "n_faces": 8261,
+   "diag": 1.1748448695590823,
+   "volume": 0.2868877723813057,
+   "diag_ratio_to_main": 1.0,
+   "is_small": false
+  },
+  {
+   "n_verts": 2140,
+   "n_faces": 4270,
+   "diag": 0.47101611103356106,
+   "volume": 0.011821911670267582,
+   "diag_ratio_to_main": 0.4009177068716594,
+   "is_small": false
+  },
+  {
+   "n_verts": 2037,
+   "n_faces": 4070,
+   "diag": 0.7446052122254881,
+   "volume": 0.03172478172928095,
+   "diag_ratio_to_main": 0.633790240327591,
+   "is_small": false
+  }
+ ],
+ "thresholds": {
+  "diag_ratio": 0.1,
+  "weld": 0.0001,
+  "zero": 0.0001
+ },
+ "blender_version": "5.0.1",
+ "normalize": {
+  "scale_applied": 1.0,
+  "raw_bbox_min": [
+   -0.5,
+   -0.29296875,
+   -0.4140625
+  ],
+  "raw_bbox_max": [
+   0.5,
+   0.294921875,
+   0.416015625
+  ]
+ }
+}

@@ -1,0 +1,12 @@
+{
+ "key": "p11@smart-topology",
+ "pid": "p11",
+ "preset": "smart-topology",
+ "prompt": "an upright piano",
+ "category": "instrument",
+ "expect_floater": false,
+ "task_id": "01a0c41e-984c-76b5-9773-652240bf6d6f",
+ "status": "SUCCEEDED",
+ "credits": 5,
+ "has_glb": true
+}

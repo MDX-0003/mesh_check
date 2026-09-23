@@ -1,0 +1,20 @@
+{"pid": "p01", "prompt": "a wooden dining chair with four legs and a curved backrest", "category": "furniture", "expect_floater": false}
+{"pid": "p02", "prompt": "a ceramic teapot with a spout, a handle and a lid", "category": "tableware", "expect_floater": false}
+{"pid": "p03", "prompt": "a stainless steel water kettle", "category": "tableware", "expect_floater": false}
+{"pid": "p04", "prompt": "an office desk lamp with an adjustable metal arm", "category": "appliance", "expect_floater": false}
+{"pid": "p05", "prompt": "a hiking backpack with straps and side pockets", "category": "bag", "expect_floater": false}
+{"pid": "p06", "prompt": "a pair of red basketball sneakers", "category": "footwear", "expect_floater": false}
+{"pid": "p07", "prompt": "a red sedan car", "category": "vehicle", "expect_floater": false}
+{"pid": "p08", "prompt": "a chinese guardian stone lion statue", "category": "statue", "expect_floater": false}
+{"pid": "p09", "prompt": "a potted monstera plant", "category": "plant", "expect_floater": false}
+{"pid": "p10", "prompt": "a ceramic coffee mug", "category": "tableware", "expect_floater": false}
+{"pid": "p11", "prompt": "an upright piano", "category": "instrument", "expect_floater": false}
+{"pid": "p12", "prompt": "a wireless game controller", "category": "electronics", "expect_floater": false}
+{"pid": "p13", "prompt": "an octopus with eight tentacles", "category": "creature", "expect_floater": false}
+{"pid": "p14", "prompt": "a red fire hydrant", "category": "street", "expect_floater": false}
+{"pid": "p15", "prompt": "a camping dome tent", "category": "outdoor", "expect_floater": false}
+{"pid": "p16", "prompt": "a wooden beach lounge chair", "category": "furniture", "expect_floater": false}
+{"pid": "p17", "prompt": "a hot air balloon with a wicker basket hanging from ropes", "category": "float-inducing", "expect_floater": true}
+{"pid": "p18", "prompt": "a crystal chandelier with multiple hanging pendants", "category": "float-inducing", "expect_floater": true}
+{"pid": "p19", "prompt": "a cartoon character holding a ball above their head with both hands", "category": "float-inducing", "expect_floater": true}
+{"pid": "p20", "prompt": "a wind chime with a round top disc and hanging metal tubes", "category": "float-inducing", "expect_floater": true}

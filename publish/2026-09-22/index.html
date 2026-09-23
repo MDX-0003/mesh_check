@@ -1,0 +1,329 @@
+<!DOCTYPE html>
+<html lang="zh"><head><meta charset="utf-8"><title>质检交付队列 · 2026-09-22</title>
+<link rel="icon" href="data:,">
+<style>
+body { font-family: "Segoe UI","Microsoft YaHei",sans-serif; margin:0;
+       background:#f5f6f8; color:#222; }
+header { background:#2c3440; color:#fff; padding:14px 24px; }
+header h1 { font-size:18px; margin:0; }
+header .sub { color:#aeb8c4; font-size:13px; margin-top:4px; }
+main { padding:16px 24px; max-width:1600px; margin:0 auto; }
+.boxes { display:flex; gap:10px; margin:12px 0; flex-wrap:wrap; }
+.boxes span { padding:8px 14px; border-radius:8px; color:#fff; font-weight:600;
+              font-size:14px; }
+.b-float { background:#b03a3a; } .b-coloc { background:#5b6ac5; }
+.b-other { background:#d18b1f; } .b-iface { background:#66707d; }
+.b-pend { background:#d18b1f; } .b-pass { background:#2e8b57; }
+.b-failx { background:#b03a3a; }
+.summary { font-size:15px; line-height:1.7; background:#fff; border-radius:8px;
+           padding:12px 16px; box-shadow:0 1px 4px rgba(0,0,0,.06); }
+h2 { font-size:16px; margin:22px 0 8px; }
+table { border-collapse:collapse; font-size:13px; background:#fff;
+        width:100%; table-layout:fixed; }
+td,th { border:1px solid #dde; padding:4px 10px; text-align:left; }
+.card { background:#fff; border-radius:10px; padding:12px 14px; margin:10px 0;
+        box-shadow:0 1px 4px rgba(0,0,0,.08); }
+.row { display:flex; flex-wrap:wrap; gap:8px; align-items:flex-start; }
+.row img { border-radius:6px; background:#ddd; }
+/* 明细表：4 列（组件编号/单件外观/定位图/问题）。图必须限宽，否则会把文字列挤成竖条
+   （2026-09-23：图证补齐后就出现过每行 1~2 个字的情况）。
+   尺寸策略：固定列宽（table-layout:fixed）+ 图 `max-width:100%; max-height:150px`，
+   于是宽屏下图按 150px 高显示（组件独立渲染图 4:1 → 约 600px，定位图双机位 2.67:1 →
+   约 400px），窄屏下按列宽等比缩小而不是把表格撑出横向滚动条。 */
+table col.c-rank { width:72px; }
+table col.c-crop { width:38%; }
+table col.c-loc { width:26%; }
+table td { vertical-align:top; overflow-wrap:anywhere; }
+table th { white-space:nowrap; }
+table td img { max-width:100%; max-height:150px; width:auto; height:auto;
+               display:block; border-radius:4px; background:#ddd; }
+table td .meta { margin-top:4px; color:#7a818c; }
+.review-card { border-left:4px solid #d18b1f; }
+.meta { color:#666; font-size:13px; }
+a { color:#3a5fcd; text-decoration:none; }
+.badge { display:inline-block; border-radius:4px; padding:1px 8px; font-size:12px;
+         background:#eef1f5; margin-right:6px; }
+.disp-pass { color:#2e8b57; font-weight:700; }
+.disp-fail { color:#b03a3a; font-weight:700; }
+.disp-pending { color:#5b6ac5; font-weight:700; }
+details { margin:8px 0; }
+button { padding:4px 12px; margin-right:6px; border:1px solid #99a; border-radius:6px;
+         background:#fff; cursor:pointer; }
+button.on { background:#2c3440; color:#fff; }
+input[type=text] { width:360px; padding:4px 8px; }
+</style></head><body>
+<header><h1>生成式 3D 资产几何质检 · 交付队列</h1>
+<div class="sub">2026-09-22 · T2 · 20 个模型</div></header>
+<main>
+<div class="boxes">
+  <span class="b-pend">待人工裁决 17 个</span>
+  <span class="b-pass">确定通过 3 个</span>
+  <span class="b-failx">确定不通过 0 个</span>
+</div>
+<p class="summary">待人工裁决的 17 个模型里：14 个有<b>组件重叠</b>（两套面叠在同一位置，从不同角度看会来回闪烁）；3 个有<b>悬浮组件</b>（整块脱离主体、悬在空白处）；11 个有<b>疑似碎屑</b>（紧贴主体、与设计件难以区分，低优先）（同一模型可能同时命中多项，故各项之和大于模型数）。</p>
+<p class="meta">另有 17 个模型检测到部件贴合界面——多组件拆分时对接处的顶点被两件共用，属拆件导出的正常形态（导出特性），<b>不是缺陷</b>，不计入复核队列。 落位规则：<b>无待复核检出 → 确定通过；
+有待复核检出 → 待人工裁决；确定不通过仅由人工裁决产生</b>（部件贴合界面不计入
+落位）。全部检出只报告、不自动修改；每条检出带图证、判据与白话理由（见各模型页
+的「问题组件」表），人工可直接推翻。模型页首屏有「入库裁决」按钮。</p>
+<p class="meta">方法与来源：几何判定由 <b>trimesh</b> 口径的检出管线给出
+（组件划分 / 视觉岛聚类 / 面积重叠率），渲染图由 <b>Blender 5.0.1 headless 渲染</b>；
+两套引擎并行互证；每个模型页的「口径与来源」行给出该模型的组件数在两套口径下的差异。</p>
+
+<h2>待人工裁决（17）</h2>
+
+<div class="card row">
+  <img src="pending/p01@smart-topology/images/base.jpg" style="height:150px">
+  <div style="flex:1">
+    <b><a href="pending/p01@smart-topology/p01@smart-topology.html">p01@smart-topology</a></b>
+    <span class="badge">待复核 3</span>
+    
+    
+    <div class="meta">家具 · "a wooden dining chair with four legs and a curved backrest"</div>
+    <div class="meta">组件重叠 3 条</div>
+  </div>
+</div>
+
+<div class="card row">
+  <img src="pending/p04@smart-topology/images/base.jpg" style="height:150px">
+  <div style="flex:1">
+    <b><a href="pending/p04@smart-topology/p04@smart-topology.html">p04@smart-topology</a></b>
+    <span class="badge">待复核 17</span>
+    <span class="badge">贴合界面 5</span>
+    
+    <div class="meta">家电 · "an office desk lamp with an adjustable metal arm"</div>
+    <div class="meta">组件重叠 15 条 · 疑似碎屑 2 条</div>
+  </div>
+</div>
+
+<div class="card row">
+  <img src="pending/p05@smart-topology/images/base.jpg" style="height:150px">
+  <div style="flex:1">
+    <b><a href="pending/p05@smart-topology/p05@smart-topology.html">p05@smart-topology</a></b>
+    <span class="badge">待复核 4</span>
+    <span class="badge">贴合界面 2</span>
+    
+    <div class="meta">包袋 · "a hiking backpack with straps and side pockets"</div>
+    <div class="meta">组件重叠 2 条 · 疑似碎屑 2 条</div>
+  </div>
+</div>
+
+<div class="card row">
+  <img src="pending/p06@smart-topology/images/base.jpg" style="height:150px">
+  <div style="flex:1">
+    <b><a href="pending/p06@smart-topology/p06@smart-topology.html">p06@smart-topology</a></b>
+    <span class="badge">待复核 42</span>
+    <span class="badge">贴合界面 4</span>
+    
+    <div class="meta">鞋靴 · "a pair of red basketball sneakers"</div>
+    <div class="meta">悬浮 42 条</div>
+  </div>
+</div>
+
+<div class="card row">
+  <img src="pending/p07@smart-topology/images/base.jpg" style="height:150px">
+  <div style="flex:1">
+    <b><a href="pending/p07@smart-topology/p07@smart-topology.html">p07@smart-topology</a></b>
+    <span class="badge">待复核 8</span>
+    <span class="badge">贴合界面 6</span>
+    
+    <div class="meta">车辆 · "a red sedan car"</div>
+    <div class="meta">组件重叠 7 条 · 疑似碎屑 1 条</div>
+  </div>
+</div>
+
+<div class="card row">
+  <img src="pending/p08@smart-topology/images/base.jpg" style="height:150px">
+  <div style="flex:1">
+    <b><a href="pending/p08@smart-topology/p08@smart-topology.html">p08@smart-topology</a></b>
+    <span class="badge">待复核 4</span>
+    <span class="badge">贴合界面 1</span>
+    
+    <div class="meta">雕像 · "a chinese guardian stone lion statue"</div>
+    <div class="meta">疑似碎屑 4 条</div>
+  </div>
+</div>
+
+<div class="card row">
+  <img src="pending/p10@smart-topology/images/base.jpg" style="height:150px">
+  <div style="flex:1">
+    <b><a href="pending/p10@smart-topology/p10@smart-topology.html">p10@smart-topology</a></b>
+    <span class="badge">待复核 1</span>
+    
+    
+    <div class="meta">餐具 · "a ceramic coffee mug"</div>
+    <div class="meta">组件重叠 1 条</div>
+  </div>
+</div>
+
+<div class="card row">
+  <img src="pending/p11@smart-topology/images/base.jpg" style="height:150px">
+  <div style="flex:1">
+    <b><a href="pending/p11@smart-topology/p11@smart-topology.html">p11@smart-topology</a></b>
+    <span class="badge">待复核 94</span>
+    <span class="badge">贴合界面 3</span>
+    
+    <div class="meta">乐器 · "an upright piano"</div>
+    <div class="meta">悬浮 86 条 · 组件重叠 8 条</div>
+  </div>
+</div>
+
+<div class="card row">
+  <img src="pending/p12@smart-topology/images/base.jpg" style="height:150px">
+  <div style="flex:1">
+    <b><a href="pending/p12@smart-topology/p12@smart-topology.html">p12@smart-topology</a></b>
+    <span class="badge">待复核 2</span>
+    
+    
+    <div class="meta">电子 · "a wireless game controller"</div>
+    <div class="meta">疑似碎屑 2 条</div>
+  </div>
+</div>
+
+<div class="card row">
+  <img src="pending/p13@smart-topology/images/base.jpg" style="height:150px">
+  <div style="flex:1">
+    <b><a href="pending/p13@smart-topology/p13@smart-topology.html">p13@smart-topology</a></b>
+    <span class="badge">待复核 6</span>
+    <span class="badge">贴合界面 17</span>
+    
+    <div class="meta">生物 · "an octopus with eight tentacles"</div>
+    <div class="meta">组件重叠 4 条 · 疑似碎屑 2 条</div>
+  </div>
+</div>
+
+<div class="card row">
+  <img src="pending/p14@smart-topology/images/base.jpg" style="height:150px">
+  <div style="flex:1">
+    <b><a href="pending/p14@smart-topology/p14@smart-topology.html">p14@smart-topology</a></b>
+    <span class="badge">待复核 2</span>
+    <span class="badge">贴合界面 4</span>
+    
+    <div class="meta">街道设施 · "a red fire hydrant"</div>
+    <div class="meta">组件重叠 1 条 · 疑似碎屑 1 条</div>
+  </div>
+</div>
+
+<div class="card row">
+  <img src="pending/p15@smart-topology/images/base.jpg" style="height:150px">
+  <div style="flex:1">
+    <b><a href="pending/p15@smart-topology/p15@smart-topology.html">p15@smart-topology</a></b>
+    <span class="badge">待复核 31</span>
+    <span class="badge">贴合界面 18</span>
+    
+    <div class="meta">户外 · "a camping dome tent"</div>
+    <div class="meta">组件重叠 30 条 · 疑似碎屑 1 条</div>
+  </div>
+</div>
+
+<div class="card row">
+  <img src="pending/p16@smart-topology/images/base.jpg" style="height:150px">
+  <div style="flex:1">
+    <b><a href="pending/p16@smart-topology/p16@smart-topology.html">p16@smart-topology</a></b>
+    <span class="badge">待复核 8</span>
+    <span class="badge">贴合界面 5</span>
+    
+    <div class="meta">家具 · "a wooden beach lounge chair"</div>
+    <div class="meta">组件重叠 4 条 · 疑似碎屑 4 条</div>
+  </div>
+</div>
+
+<div class="card row">
+  <img src="pending/p17@smart-topology/images/base.jpg" style="height:150px">
+  <div style="flex:1">
+    <b><a href="pending/p17@smart-topology/p17@smart-topology.html">p17@smart-topology</a></b>
+    <span class="badge">待复核 7</span>
+    <span class="badge">贴合界面 2</span>
+    <span class="badge">悬浮诱导 prompt</span>
+    <div class="meta">悬浮诱导 · "a hot air balloon with a wicker basket hanging from ropes"</div>
+    <div class="meta">组件重叠 3 条 · 疑似碎屑 4 条</div>
+  </div>
+</div>
+
+<div class="card row">
+  <img src="pending/p18@smart-topology/images/base.jpg" style="height:150px">
+  <div style="flex:1">
+    <b><a href="pending/p18@smart-topology/p18@smart-topology.html">p18@smart-topology</a></b>
+    <span class="badge">待复核 22</span>
+    <span class="badge">贴合界面 77</span>
+    <span class="badge">悬浮诱导 prompt</span>
+    <div class="meta">悬浮诱导 · "a crystal chandelier with multiple hanging pendants"</div>
+    <div class="meta">悬浮 1 条 · 组件重叠 21 条</div>
+  </div>
+</div>
+
+<div class="card row">
+  <img src="pending/p19@smart-topology/images/base.jpg" style="height:150px">
+  <div style="flex:1">
+    <b><a href="pending/p19@smart-topology/p19@smart-topology.html">p19@smart-topology</a></b>
+    <span class="badge">待复核 1</span>
+    <span class="badge">贴合界面 2</span>
+    <span class="badge">悬浮诱导 prompt</span>
+    <div class="meta">悬浮诱导 · "a cartoon character holding a ball above their head with both hands"</div>
+    <div class="meta">组件重叠 1 条</div>
+  </div>
+</div>
+
+<div class="card row">
+  <img src="pending/p20@smart-topology/images/base.jpg" style="height:150px">
+  <div style="flex:1">
+    <b><a href="pending/p20@smart-topology/p20@smart-topology.html">p20@smart-topology</a></b>
+    <span class="badge">待复核 4</span>
+    <span class="badge">贴合界面 12</span>
+    <span class="badge">悬浮诱导 prompt</span>
+    <div class="meta">悬浮诱导 · "a wind chime with a round top disc and hanging metal tubes"</div>
+    <div class="meta">组件重叠 2 条 · 疑似碎屑 2 条</div>
+  </div>
+</div>
+
+
+
+<h2>确定通过（3）</h2>
+
+<div class="card row">
+  <img src="passed/p02@smart-topology/images/base.jpg" style="height:150px">
+  <div style="flex:1">
+    <b><a href="passed/p02@smart-topology/p02@smart-topology.html">p02@smart-topology</a></b>
+    <span class="badge">待复核 0</span>
+    <span class="badge">贴合界面 1</span>
+    
+    <div class="meta">餐具 · "a ceramic teapot with a spout, a handle and a lid"</div>
+    <div class="meta">无待复核检出</div>
+  </div>
+</div>
+
+<div class="card row">
+  <img src="passed/p03@smart-topology/images/base.jpg" style="height:150px">
+  <div style="flex:1">
+    <b><a href="passed/p03@smart-topology/p03@smart-topology.html">p03@smart-topology</a></b>
+    <span class="badge">待复核 0</span>
+    <span class="badge">贴合界面 2</span>
+    
+    <div class="meta">餐具 · "a stainless steel water kettle"</div>
+    <div class="meta">无待复核检出</div>
+  </div>
+</div>
+
+<div class="card row">
+  <img src="passed/p09@smart-topology/images/base.jpg" style="height:150px">
+  <div style="flex:1">
+    <b><a href="passed/p09@smart-topology/p09@smart-topology.html">p09@smart-topology</a></b>
+    <span class="badge">待复核 0</span>
+    <span class="badge">贴合界面 7</span>
+    
+    <div class="meta">植物 · "a potted monstera plant"</div>
+    <div class="meta">无待复核检出</div>
+  </div>
+</div>
+
+
+
+<h2>确定不通过（0）</h2>
+
+<p class="meta">（空）</p>
+
+<p class="meta">可核对的数据附录：<code>data/findings.jsonl</code>（每条检出）、
+<code>data/islands.jsonl</code>（视觉岛）、<code>data/prompts.jsonl</code>（prompt 定义）·
+每模型目录下另有 <code>blender_checks.json</code>（Blender 口径原生指标）。</p>
+<p class="meta">本页由本仓库的交付脚本 <code>meshq/stages/deliver.py</code> 从上述数据文件生成；
+离线打开时裁决控件为只读，本机运行 <code>python -m meshq.tools.review_server</code> 即可在线裁决。</p>
+</main></body></html>

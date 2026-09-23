@@ -1,0 +1,12 @@
+{
+ "key": "p02@smart-topology",
+ "pid": "p02",
+ "preset": "smart-topology",
+ "prompt": "a ceramic teapot with a spout, a handle and a lid",
+ "category": "tableware",
+ "expect_floater": false,
+ "task_id": "01a0c41b-3583-75bc-9aa6-c9d88e30fe6f",
+ "status": "SUCCEEDED",
+ "credits": 5,
+ "has_glb": true
+}

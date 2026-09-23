@@ -1,0 +1,12 @@
+{
+ "key": "p17@smart-topology",
+ "pid": "p17",
+ "preset": "smart-topology",
+ "prompt": "a hot air balloon with a wicker basket hanging from ropes",
+ "category": "float-inducing",
+ "expect_floater": true,
+ "task_id": "01a0c420-4f46-7187-bd99-5b6b681d1468",
+ "status": "SUCCEEDED",
+ "credits": 5,
+ "has_glb": true
+}

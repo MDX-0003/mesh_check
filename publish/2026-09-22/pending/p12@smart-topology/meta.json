@@ -1,0 +1,12 @@
+{
+ "key": "p12@smart-topology",
+ "pid": "p12",
+ "preset": "smart-topology",
+ "prompt": "a wireless game controller",
+ "category": "electronics",
+ "expect_floater": false,
+ "task_id": "01a0c41e-f648-71a6-89c2-d5d5719ac2a8",
+ "status": "SUCCEEDED",
+ "credits": 5,
+ "has_glb": true
+}

@@ -1,0 +1,12 @@
+{
+ "key": "p09@smart-topology",
+ "pid": "p09",
+ "preset": "smart-topology",
+ "prompt": "a potted monstera plant",
+ "category": "plant",
+ "expect_floater": false,
+ "task_id": "01a0c41d-648d-774e-9525-0cd20aa10696",
+ "status": "SUCCEEDED",
+ "credits": 5,
+ "has_glb": true
+}

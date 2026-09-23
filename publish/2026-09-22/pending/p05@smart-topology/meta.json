@@ -1,0 +1,12 @@
+{
+ "key": "p05@smart-topology",
+ "pid": "p05",
+ "preset": "smart-topology",
+ "prompt": "a hiking backpack with straps and side pockets",
+ "category": "bag",
+ "expect_floater": false,
+ "task_id": "01a0c41c-60d2-75f4-b996-c18821f77000",
+ "status": "SUCCEEDED",
+ "credits": 5,
+ "has_glb": true
+}

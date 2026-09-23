@@ -1,0 +1,41 @@
+{
+ "sig": "f53219f327d81174",
+ "spec": [
+  [
+   "base_iso.png",
+   "thumb.jpg",
+   "jpg",
+   320
+  ],
+  [
+   "base_iso.png",
+   "base.jpg",
+   "jpg",
+   720
+  ],
+  [
+   "wire_front.png",
+   "wire_front.png",
+   "png",
+   1000
+  ],
+  [
+   "wire_top.png",
+   "wire_top.png",
+   "png",
+   1000
+  ],
+  [
+   "wire_right.png",
+   "wire_right.png",
+   "png",
+   1000
+  ],
+  [
+   "compare_front.png",
+   "compare.jpg",
+   "jpg",
+   1200
+  ]
+ ]
+}

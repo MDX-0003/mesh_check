@@ -1,0 +1,50 @@
+{
+ "source": "model.glb",
+ "n_verts": 8026,
+ "n_faces": 16053,
+ "boundary_edges": 25,
+ "non_manifold_edges": 0,
+ "self_intersect_faces": 441,
+ "zero_area_faces": 1,
+ "zero_length_edges": 0,
+ "n_pieces": 2,
+ "n_small_pieces": 0,
+ "fragment_face_ratio": 0.0,
+ "pieces": [
+  {
+   "n_verts": 6162,
+   "n_faces": 12321,
+   "diag": 1.2210093365936348,
+   "volume": 0.32785212993621826,
+   "diag_ratio_to_main": 1.0,
+   "is_small": false
+  },
+  {
+   "n_verts": 1864,
+   "n_faces": 3732,
+   "diag": 0.4934050018644604,
+   "volume": 0.0031103845685720444,
+   "diag_ratio_to_main": 0.40409601063408657,
+   "is_small": false
+  }
+ ],
+ "thresholds": {
+  "diag_ratio": 0.1,
+  "weld": 0.0001,
+  "zero": 0.0001
+ },
+ "blender_version": "5.0.1",
+ "normalize": {
+  "scale_applied": 1.0,
+  "raw_bbox_min": [
+   -0.5,
+   -0.287109375,
+   -0.345703125
+  ],
+  "raw_bbox_max": [
+   0.5,
+   0.287109375,
+   0.34375
+  ]
+ }
+}

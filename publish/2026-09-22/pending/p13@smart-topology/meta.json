@@ -1,0 +1,12 @@
+{
+ "key": "p13@smart-topology",
+ "pid": "p13",
+ "preset": "smart-topology",
+ "prompt": "an octopus with eight tentacles",
+ "category": "creature",
+ "expect_floater": false,
+ "task_id": "01a0c41f-52a7-767d-8cd5-7f78aa2d033f",
+ "status": "SUCCEEDED",
+ "credits": 5,
+ "has_glb": true
+}

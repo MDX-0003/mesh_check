@@ -1,0 +1,12 @@
+{
+ "key": "p14@smart-topology",
+ "pid": "p14",
+ "preset": "smart-topology",
+ "prompt": "a red fire hydrant",
+ "category": "street",
+ "expect_floater": false,
+ "task_id": "01a0c41f-b1e2-7325-9260-d25674d9a20e",
+ "status": "SUCCEEDED",
+ "credits": 5,
+ "has_glb": true
+}

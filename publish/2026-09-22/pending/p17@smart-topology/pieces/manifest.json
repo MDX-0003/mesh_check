@@ -1,0 +1,103 @@
+{
+ "version": 1,
+ "weld_digits": 5,
+ "n_pieces": 15,
+ "source": {
+  "size": 288100,
+  "mtime_ns": 1789996870842025200
+ },
+ "pieces": [
+  {
+   "rank": 0,
+   "n_faces": 11998,
+   "glb": "pieces/0.glb"
+  },
+  {
+   "rank": 1,
+   "n_faces": 1487,
+   "glb": "pieces/1.glb"
+  },
+  {
+   "rank": 2,
+   "n_faces": 1216,
+   "glb": "pieces/2.glb"
+  },
+  {
+   "rank": 3,
+   "n_faces": 552,
+   "glb": "pieces/3.glb"
+  },
+  {
+   "rank": 4,
+   "n_faces": 90,
+   "glb": "pieces/4.glb"
+  },
+  {
+   "rank": 5,
+   "n_faces": 88,
+   "glb": "pieces/5.glb"
+  },
+  {
+   "rank": 6,
+   "n_faces": 81,
+   "glb": "pieces/6.glb"
+  },
+  {
+   "rank": 7,
+   "n_faces": 77,
+   "glb": "pieces/7.glb"
+  },
+  {
+   "rank": 8,
+   "n_faces": 74,
+   "glb": "pieces/8.glb"
+  },
+  {
+   "rank": 9,
+   "n_faces": 74,
+   "glb": "pieces/9.glb"
+  },
+  {
+   "rank": 10,
+   "n_faces": 74,
+   "glb": "pieces/10.glb"
+  },
+  {
+   "rank": 11,
+   "n_faces": 72,
+   "glb": "pieces/11.glb"
+  },
+  {
+   "rank": 12,
+   "n_faces": 6,
+   "glb": "pieces/12.glb"
+  },
+  {
+   "rank": 13,
+   "n_faces": 5,
+   "glb": "pieces/13.glb"
+  },
+  {
+   "rank": 14,
+   "n_faces": 1,
+   "glb": "pieces/14.glb"
+  }
+ ],
+ "glbs": {
+  "0": "pieces/0.glb",
+  "1": "pieces/1.glb",
+  "2": "pieces/2.glb",
+  "3": "pieces/3.glb",
+  "4": "pieces/4.glb",
+  "5": "pieces/5.glb",
+  "6": "pieces/6.glb",
+  "7": "pieces/7.glb",
+  "8": "pieces/8.glb",
+  "9": "pieces/9.glb",
+  "10": "pieces/10.glb",
+  "11": "pieces/11.glb",
+  "12": "pieces/12.glb",
+  "13": "pieces/13.glb",
+  "14": "pieces/14.glb"
+ }
+}

@@ -1,0 +1,25 @@
+[project]
+name = "mesh-test"
+version = "0.1.0"
+description = "生成式 3D 资产几何质检管线：批量生成 → Blender 渲染 → 双引擎几何指标 → 悬浮组件检测/修复 → HTML 报告"
+requires-python = ">=3.12"
+dependencies = [
+    "requests>=2.31",
+    "trimesh>=4.4",
+    "numpy>=1.26",
+    "jinja2>=3.1",
+    "networkx>=3.6.1",
+    "pillow>=10.0",
+    "scipy>=1.13",
+]
+
+[dependency-groups]
+dev = [
+    "pytest>=8.0",
+]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+markers = [
+    "integration: 需要真实网络/Blender 的集成测试，不进 CI",
+]

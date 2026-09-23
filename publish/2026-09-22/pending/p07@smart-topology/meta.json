@@ -1,0 +1,12 @@
+{
+ "key": "p07@smart-topology",
+ "pid": "p07",
+ "preset": "smart-topology",
+ "prompt": "a red sedan car",
+ "category": "vehicle",
+ "expect_floater": false,
+ "task_id": "01a0c41c-f68b-7189-b0c5-6d440e440063",
+ "status": "SUCCEEDED",
+ "credits": 5,
+ "has_glb": true
+}

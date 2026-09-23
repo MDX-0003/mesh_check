@@ -1,0 +1,12 @@
+{
+ "key": "p20@smart-topology",
+ "pid": "p20",
+ "preset": "smart-topology",
+ "prompt": "a wind chime with a round top disc and hanging metal tubes",
+ "category": "float-inducing",
+ "expect_floater": true,
+ "task_id": "01a0c421-5252-71c5-a0e1-5cddd398d110",
+ "status": "SUCCEEDED",
+ "credits": 5,
+ "has_glb": true
+}

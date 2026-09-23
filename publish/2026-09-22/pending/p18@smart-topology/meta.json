@@ -1,0 +1,12 @@
+{
+ "key": "p18@smart-topology",
+ "pid": "p18",
+ "preset": "smart-topology",
+ "prompt": "a crystal chandelier with multiple hanging pendants",
+ "category": "float-inducing",
+ "expect_floater": true,
+ "task_id": "01a0c420-b34a-753e-a05f-5bee0606b892",
+ "status": "SUCCEEDED",
+ "credits": 5,
+ "has_glb": true
+}

@@ -1,0 +1,12 @@
+{
+ "key": "p04@smart-topology",
+ "pid": "p04",
+ "preset": "smart-topology",
+ "prompt": "an office desk lamp with an adjustable metal arm",
+ "category": "appliance",
+ "expect_floater": false,
+ "task_id": "01a0c41c-03c3-7158-9a51-1ba416cba6b4",
+ "status": "SUCCEEDED",
+ "credits": 5,
+ "has_glb": true
+}

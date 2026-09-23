@@ -1,0 +1,12 @@
+{
+ "key": "p15@smart-topology",
+ "pid": "p15",
+ "preset": "smart-topology",
+ "prompt": "a camping dome tent",
+ "category": "outdoor",
+ "expect_floater": false,
+ "task_id": "01a0c41f-e6ad-7077-a23f-57fd615b2133",
+ "status": "SUCCEEDED",
+ "credits": 5,
+ "has_glb": true
+}

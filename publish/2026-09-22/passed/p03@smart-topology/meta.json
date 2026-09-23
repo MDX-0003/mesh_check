@@ -1,0 +1,12 @@
+{
+ "key": "p03@smart-topology",
+ "pid": "p03",
+ "preset": "smart-topology",
+ "prompt": "a stainless steel water kettle",
+ "category": "tableware",
+ "expect_floater": false,
+ "task_id": "01a0c41b-95e1-7655-8597-e07200b89af2",
+ "status": "SUCCEEDED",
+ "credits": 5,
+ "has_glb": true
+}

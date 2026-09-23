@@ -1,0 +1,25 @@
+{
+ "version": 1,
+ "weld_digits": 5,
+ "n_pieces": 2,
+ "source": {
+  "size": 292536,
+  "mtime_ns": 1789996733259069300
+ },
+ "pieces": [
+  {
+   "rank": 0,
+   "n_faces": 16201,
+   "glb": "pieces/0.glb"
+  },
+  {
+   "rank": 1,
+   "n_faces": 2,
+   "glb": "pieces/1.glb"
+  }
+ ],
+ "glbs": {
+  "0": "pieces/0.glb",
+  "1": "pieces/1.glb"
+ }
+}

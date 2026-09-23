@@ -1,0 +1,12 @@
+{
+ "key": "p10@smart-topology",
+ "pid": "p10",
+ "preset": "smart-topology",
+ "prompt": "a ceramic coffee mug",
+ "category": "tableware",
+ "expect_floater": false,
+ "task_id": "01a0c41e-123e-71cc-a55f-774ce1de7219",
+ "status": "SUCCEEDED",
+ "credits": 5,
+ "has_glb": true
+}
