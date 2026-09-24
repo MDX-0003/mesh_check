@@ -132,8 +132,8 @@
 ```bash
 uv sync                                                  # 还原虚拟环境（Python 3.12）
 cp config.example.toml config.toml                       # 补配置（见下）
-python -m meshq.tools.seed_data --unpack <zip 所在目录>   # 解压到位 + 逐文件 sha256/GLB 校验
-python -m meshq.tools.seed_data --check                  # 复检：各阶段输入全 OK 即装载成功
+uv run python -m meshq.tools.seed_data --unpack <zip 所在目录>   # 解压到位 + 逐文件 sha256/GLB 校验
+uv run python -m meshq.tools.seed_data --check                  # 复检：各阶段输入全 OK 即装载成功
 ```
 
 > 包内路径就是**仓库相对路径**（如 `data/raw/<key>/model.glb`），`--unpack` 会把它们放进正确位置，**不要**再手解压到别的层级；参数也可以直接给某个 zip 文件。两个包只含本交付的批次（T2 / smart-topology，20 个模型）：模型按目录键筛、分析产物逐记录裁剪，--list` 可随时看本机现状。
@@ -144,9 +144,9 @@ python -m meshq.tools.seed_data --check                  # 复检：各阶段输
 **C · 重跑渲染图并重建交付页（需要 Blender）**
 
 ```bash
-python -m meshq.pipeline render                                  # 全批渲染；幂等，中断后可续跑
-python -m meshq.stages.render --keys p18@smart-topology --target locator   # 只重渲某模型的某图种
-python -m meshq.stages.deliver --date 2026-09-22 --out publish --snapshot  # 用渲好的图重建交付页
+uv run python -m meshq.pipeline render                                  # 全批渲染；幂等，中断后可续跑
+uv run python -m meshq.stages.render --keys p18@smart-topology --target locator   # 只重渲某模型的某图种
+uv run python -m meshq.stages.deliver --date 2026-09-22 --out publish --snapshot  # 用渲好的图重建交付页
 ```
 
 图种可单独重跑：`--target overview|highlight|wire|pieces|locator`（**改图必须加 `--force`**）。耗时参考（单机实测）：单模型三通道约 **13 秒**（Blender 启动占大半），检出多的模型更久（p11 有 94 件单件独立渲染 + 94 张定位图）；**全批约 30~60 分钟**。渲染经`blender.exe --background --python meshq/blender/render_one.py` 驱动。
@@ -159,7 +159,7 @@ python -m meshq.stages.deliver --date 2026-09-22 --out publish --snapshot  # 用
 **D · 启动项目：本地审核台（有代码 + 快照即可，不需要 `data/`）**
 
 ```bash
-python -m meshq.tools.review_server publish/2026-09-22 --source publish/2026-09-22/data
+uv run python -m meshq.tools.review_server publish/2026-09-22 --source publish/2026-09-22/data
 # 打开 http://127.0.0.1:8000/ → 模型页首屏「入库裁决」三选一
 ```
 
@@ -168,13 +168,13 @@ python -m meshq.tools.review_server publish/2026-09-22 --source publish/2026-09-
 要重跑分析与报告（纯 Python，产物都写进 `data/`；任何阶段加 `--dry-run` 先看影响面）：
 
 ```bash
-python -m meshq.pipeline inspect                 # 指标 → 部件特征 → 级联
-python -m meshq.pipeline detect                  # → data/findings.jsonl（全批约十几分钟）
-python -m meshq.pipeline report                  # → data/report_t2.html 等
-uv run pytest                                    # 自检（343 条单测：342 通过、1 跳过）
+uv run python -m meshq.pipeline inspect                 # 指标 → 部件特征 → 级联
+uv run python -m meshq.pipeline detect                  # → data/findings.jsonl（全批约十几分钟）
+uv run python -m meshq.pipeline report                  # → data/report_t2.html 等
+uv run pytest                                           # 自检（343 条单测：342 通过、1 跳过）
 ```
 
-**不加任何数据也能完整阅读这批结果**——模型与渲染图都在 `publish/2026-09-22/` 快照内；连数据包也没有时，可用 Meshy API 按同一批 prompt 重新生成（**付费**，先 `python -m meshq.pipeline generate--dry-run` 看预算再跑）。
+**不加任何数据也能完整阅读这批结果**——模型与渲染图都在 `publish/2026-09-22/` 快照内；连数据包也没有时，可用 Meshy API 按同一批 prompt 重新生成（**付费**，先 `uv run python -m meshq.pipeline generate --dry-run` 看预算再跑）。
 
 ## 附：数据来源
 

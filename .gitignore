@@ -11,6 +11,12 @@ __pycache__/
 # 会连带忽略 publish/<date>/data/（快照自带的附录目录），上一版即踩此坑。
 /data/
 
+# 本机数据包目录（seed_data 分发出的 zip + 手工解出的同构副本）：README「B · 接上
+# 数据」里的 <zip 所在目录> 通常就指这里。内容是 data/ 的重复（体积 + 可重建）
+# 且属分发出门件、非源码，故整体忽略。同样必须锚定根级——包内路径形如
+# `data/…`、`prompts.jsonl`，与仓库同构，不加锚点会误伤别处的同名路径。
+/datas/
+
 # Claude 本地状态
 .claude/settings.local.json
 
