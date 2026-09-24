@@ -1,140 +1,193 @@
-# Mesh-Test — 生成式 3D 资产几何质检管线
+# 生成式 3D 资产几何质检—交付说明
 
-对 Meshy T2 API 批量生成的 GLB 模型做自动化几何质检：
+![meshq-01-pipeline.png](https://picui.ogmua.cn/s1/2026/09/23/6ab3e7388a2c3.webp)
 
-**交付物 = 代码（本仓库）+ 模型及渲染图与交付说明（都在 `publish/<日期>/` 快照内）。**
+**如果只想看结果，clone后查看`publish\2026-09-22\index.html`即可，如希望复现，需下载原始数据zip，沿本文末操作流程复现。**
 
-## 目录导览
+## 摘要
 
-| 目录 | 是什么 | 随仓库分发 |
+对 Meshy T2（`smart-topology`）档生成的 20 个模型做几何质检，核心检测问题是与主体分离的**悬浮组件**、与既有表面位置重合的**共位面**。
+
+- **检出 424 条**：待人工复核 256 条（悬浮 129 / 共位重叠 102 / 非核心 25）+ 部件贴合界面 168 处（T2 拆件的正常形态，计为导出特性，不占复核队列）。
+- **方法**：两套独立几何引擎并行（Blender 原生 + trimesh），画面由前者出、结论由后者出，两者的差异本身作为证据使用（第四节给出实测的一致/不一致清单与每个数字的来源）。
+
+## prompt 是怎么选的
+
+**设计原则**：用同一批 prompt 同时覆盖"形态谱系"与"已知缺陷类型"，使评估结论可外推到别的类别，而不是只看一类物体好不好；同时**追问句保持一句名词性短语**，把"怎么造"留给生成器。
+
+- **16 个多类别日常物**（`expect_floater=false`，14 个类别）：家具 / 餐具 / 家电 / 包袋 / 鞋靴 /车辆 / 雕像 / 植物 / 乐器 / 电子 / 生物 —— 刻意跨越硬表面与有机体、单件与多件、细柄薄壁与对称形态。
+- **4 个悬浮诱导 prompt**（`expect_floater=true`，`category=float-inducing`）：热气球、水晶吊灯、举球角色、风铃。这四类在多件生成下天然含"靠绳索/吊挂连接、或与主体分离"的结构，用来**检验流程会不会误判成缺陷**。
+
+**为什么只给一句名词短语**（不用长句描述材质/风格/尺寸）：本批要评估的是**生成器自身的几何质量**。一旦把材质、风格、构成写进 prompt，评估结论就变成"prompt 服从度"，几何缺陷会被 prompt 掩盖；名词短语让同类物体在不同模型间保持可比。项目内会把模型统一归一化后再渲染。
+
+## 评估结论
+
+**批次与成本**：T2 档 20 件全部 SUCCEEDED消耗100 credits
+
+**检查机制**：
+
+- **悬浮组件检查**：把组件按空间邻近聚类（判定标准是聚类距离其他组件的距离 ε >= 3% AABB对角线长度；42 个模型上实测该距离通常为2%~5% 区间内，取区间中点）
+- **共位面检查**：以"焊接后连通性消失"+"表面积重叠率"双证据判定，再按重叠率分型为[0%,20%]、[20%,60%]、[60%,100%]三个区间，大于60%判定为重叠，小于20%判为正常现象，中间情况留待用户审查。
+- 最终审查界面里，只要存在**距离>=3%的悬浮组件**或者**表面积重叠率>=20%**的三角面穿插，我们都一律视作待用户审查，并将每处可疑部件独立拆分渲染+在整体模型上高亮渲染，帮助用户快速确定是否符合预期。
+
+| 类别 | 条数 | 涉及模型 | 说明 |
+|---|---|---|---|
+| 悬浮碎片 | 129 | 3（p06 / p11 / p18） | 与主体完全分离的组件或整组 |
+| 组件重叠 | 102 | 14 | 真重叠 50 + 待审查 52 |
+| 非核心组件 | 25 | 11 | 紧贴主体、尺寸小、无同类尺寸件 |
+| 部件贴合界面 | 168 | 17 | 多件拆分时对接界面顶点重合，属导出特性 |
+
+
+**结论**：
+
+1. **三角面穿插并不一定被检查**：p11 的三角面相交主要是来自T2的拆件生成后，"重复面片/碎壳穿过主体"的结果；而 p02 这类干净模型的 441 个三角面相交来自壶嘴/把手与壶体的衔接，属生成式网格拼接的正常现象。故本批把“三角面相交”降为指标，不作为决定通过与否的依据。
+2. **"多部件"本身不是缺陷**：168 处贴合界面属 T2 拆件的正常形态，只计数、不进复核队列。若把所有"表面贴着"都算作缺陷，结论会变成"19/20 个模型有问题"——分型口径直接决定这个数字。
+3. **几何基础质量可用**：非流形边、自交面、零面积面在每个模型的量级都很小（除 p15），且**渲染不可见**；它们与本批的检测问题（组件级）是两个层面的东西。
+
+## 为什么选"不应该存在的组件"做自动检测，效果如何
+
+- **服务于下游数据需求**：本项目的下游是"渲染式训练场景搭建"。悬浮组件会在渲染图中可能被误标注为真实实体，共位重复面片是 **z-fighting 闪烁**的来源——这两类是会直接改变渲染像素的缺陷；
+- **发生率**：悬浮组件（3/20），但与之合并定义的“重叠三角面”出现在**19/20** 个模型上；按指标筛选后，需要人工复核的数量为 **17/20**——说明这不是一个偶发现象。
+- **判据客观可复现**：悬浮组件的依据是相对几何距离，三角面重叠的来源是"焊接顶点后连通性消失 + 表面积重叠率"，这些来源都是客观可观察的。
+
+**与备选检测项的对照**：
+
+| 备选问题 | 本批实测 | 为什么不选 |
 |---|---|---|
-| `meshq/` | 全部代码（`core` 纯逻辑 / `stages` 六段 / `tools` 工具 / `blender` 只在 Blender 内置 Python 里运行） | ✅ |
-| `publish/<日期>/` | **离线只读快照**：图证 + 每模型 GLB + 明细页 + 交付说明，双击即读 | ✅ |
-| `.claude/memory/` | 现实 bug 库与设计备忘（动手前先查 `_index.md`） | ✅ |
-| `data/` | 管线产物（模型 / 渲染中间件 / 指标 / 检出 / 台账） | ❌ 体积大、可由代码重建，用 `meshq/tools/seed_data.py` 装载 |
-| `results/<日期>/` | 本机交付工作目录（含可裁决的服务端形态） | ❌ 可由 `meshq/stages/deliver.py` 从 `data/` 重建 |
+| 碎片化（视觉连续的表面碎成大量壳） | 普遍（p11 306 壳 / p18 342 壳） | 渲染基本不可见（缝隙在像素以下），是资产质量度量而非数据污染； |
+| 表面自交 | 普遍且数值大（p15 5,263 / p11 4,705 面） | 纯渲染不可见（穿插不影响深度合成）；且多为跨组件小件穿过主体的**伴随读数**，自身基线噪声大 |
+| 非流形边 | 17/20 件 > 0，最大 63 | 渲染不可见，仅模拟/打印类下游有害；当前无低成本自动修复方案 |
+| 开放边界（非水密） | 20/20 非水密，最大 1,905 条 | 低模/壳体形态的**常态**而非异常，不构成独立"问题" |
+| 零面积面 / 零长度边 | 14/20 件有零面积面（0~86） | 顶点级清理即可 |
+| 法线朝向 / UV 类问题 | 本批未作为候选 | 法线一致性问题在本批为 18/20 一致（余 2 件与自交高的模型重合）；UV 属贴图范畴，任务限定几何质检 |
 
-## 怎么跑起来（概览）
+## 用了什么方法：两个几何引擎的分工、一致与不一致
 
-完整步骤与数据包说明见 **[`publish/2026-09-22/交付说明.md`](publish/2026-09-22/交付说明.md) 第五节**，这里只给最短路径：
+本项目**同时**使用两个几何引擎，**画面由 Blender 出，结论由 trimesh 出，两者的差异本身作为证据使用**。本节把"哪里一样、哪里不一样、页面上的每个数字来自谁"讲清楚。
 
-```bash
-uv sync                                  # 还原虚拟环境（python 3.12）
+### 两个引擎各自承担什么
 
-# A 只读结果：双击 publish/2026-09-22/index.html（不需要 Python / data/）
+| 引擎 | 运行位置 | 承担的工作 |
+|---|---|---|
+| **Blender 5.0.1**（bpy / bmesh，`--background` headless 运行） | `meshq/blender/` | **全部渲染**：三视图三通道（平滑 / 判别着色 / 线框）、组件独立渲染、逐检出定位图；**一份原生几何指标**：面/顶点数、边分类（开放边界 / 真非流形）、自交面（BVH 自相交）、零面积面与零长度边、组件连通域、归一化参数 |
+| **trimesh**（+ numpy / scipy，虚拟环境） | `meshq/core/mesh_ops.py` 等 | **全部判定**：组件划分、视觉岛聚类、最近距离、表面积重叠率、共位分型、悬浮/共位检出与落位；**一份复核指标**：面/顶点、边分类、水密性、欧拉数、退化面、组件特征 |
+| 纯投影打分（numpy，`meshq/core/locator.py`） | 虚拟环境 | 定位图的**观察方向选择**（为了高亮可能有问题的三角面，用投影面积/朝向选择拍摄角度，尽量确保每一处独立截图都方便审查） |
 
-# B 在线裁决（只需代码 + 快照）
-python -m meshq.tools.review_server publish/2026-09-22 --source publish/2026-09-22/data
+两套引擎的**算法不同源**：同一模型可能给出不同的组件划分与边计数——这一点被**有意保留**。典型用例：p12 的一个65,848 面部件，trimesh（焊接 1e-5 量化）判**分离**、Blender（焊接 1e-4 邻近合并）判**连通**， 该模型转人工裁决，而不是冒险自动删除。
 
-# C 重跑分析与交付（需要 data/）
-cp config.example.toml config.toml               # 分析/报告阶段要读它（Blender 路径与 key 可留空）
-python -m meshq.tools.seed_data --check          # 体检：缺什么
-python -m meshq.tools.seed_data --unpack <数据包目录>   # 解压到仓库根（包内即仓库相对路径）
-python -m meshq.tools.seed_data --check          # 再体检：全 OK 即装载成功
-python -m meshq.pipeline detect && python -m meshq.pipeline report
-python -m meshq.pipeline deliver --date 2026-09-22
+### 实测：哪些量一致、哪些不一致（T2 全 20 模型逐件对照）
 
-# D 本机没有模型：重新生成（付费，先干跑看预算）
-python -m meshq.pipeline generate --dry-run
-python -m meshq.stages.generate --all --preset smart-topology
-```
+| 量 | 一致模型数 | 不一致时的差异量级 | 说明 |
+|---|---|---|---|
+| 面数 | **7 / 20** | 1 ~ 18 面（0.01%~0.1%） | Blender 焊接更强，会额外并入极少数退化面 |
+| 真非流形边（>2 面共用） | **15 / 20** | 1 ~ 7 条 | 多数模型为 0，分歧是个位数 |
+| 开放边界边 | **11 / 20** | 2 ~ 21 条（0.2%~4%） | T2 低模普遍非水密（最大 1,905 条），小差异来自焊接不同 |
+| **组件数** | **1 / 20** | Blender 系统性更少：p18 237 vs 342、p11 291 vs 306、p15 107 vs 144 | 见 4.3；这是最大且唯一"系统性"的差异 |
 
-数据产物在 `data/`（不入库）；原始模型自动备份到 `[backup] dir`（`config.toml`），代码有 bug 时直接复用本地模型重跑分析，不重复消耗 credit。**只有 `render` 阶段需要 Blender**（`config.toml` 的 `[blender] path`），其余步骤纯 Python。
+要点：**"边与面"级别的量在两套引擎下高度一致（差异在千分之几），"组件划分"级别则系统性不一致**。
+换句话说，几何量的复核可以直接用第二引擎对账；而组件级结论（编号、件数、检出）必须固定一个口径。
 
-## 代码结构
+### 组件数为什么必然不一致，以及本项目如何处理
 
-```
-meshq/
-  pipeline.py          统一入口（stage 编排 + 全阶段 --dry-run）
-  core/                纯逻辑与契约（不依赖 bpy，也不依赖"阶段"概念）
-    common.py            配置加载、glb_valid 完整性校验、MeshyClient、TaskLedger（幂等台账）
-    geometry.py          纯逻辑（边分类 / 主组件 / 规模口径 / 三档判定），两侧引擎共用
-    mesh_ops.py          trimesh 侧几何操作（焊接 / 连通域 / 组件特征 / 包围盒贴片判定）
-    findings.py          检出结果契约（findings.jsonl = 报告与交付的唯一检出输入）
-    detectors.py         检测关节 + REGISTRY（岛层悬浮 / 共位双证据 + 面积重叠率分型）
-    part_features.py     部件特征提取 → parts.jsonl
-    part_verdict.py      部件判别级联 → part_verdicts.jsonl
-    piece_store.py       拆分产物化：data/raw/<key>/pieces/<rank>.glb + manifest.json
-    locator.py           定位图视角选择（纯投影打分，确定性、可单测）
-    lookdev_math.py      色彩空间 / 灯位数学 / 视图与机位常量（纯函数，两侧共用）
-    review.py            裁决契约与落位规则（唯一状态源 data/review.jsonl）
-  stages/              管线六段（每段有自己的 main()，可单独执行）
-    generate.py          生成（幂等：SUCCEEDED 跳过 / PENDING 续查 / 坏文件补下载）
-    render.py            Blender 编排器 + 后处理（线框 SSAA 降回、前后对比图、图种级 --target）
-    metrics.py           trimesh 独立复核 → metrics.jsonl（边口径已拆：boundary / non_manifold）
-    detect.py            v2 检出编排 → findings.jsonl（检出关节在 core/detectors.py）
-    report.py            Jinja2 单文件 HTML（报告为本地分析件，不在交付内）
-    deliver.py           交付目录 results/ + 离线快照 publish/（HTML 模板与图片转码都在这）
-  blender/             只在 Blender 内置 Python 中运行（见该目录 __init__.py）
-    render_one.py        单模型渲染入口（通道编排 + 产物契约）
-    lookdev.py           世界背景 / 灯光 / 材质 / 相机族 / 渲染
-    bpy_geom.py          导入焊接 / 连通域 / 几何计数 / 归一化 / 碎片像素投影
-  tools/               按需运行的辅助工具（不属于六段常规流程）
-    backup.py            模型备份（仓库外）
-    review_server.py     本地审核台（静态服务 + 裁决 API）
-    seed_data.py         数据装载与分发（体检 / 打包 / 解包校验）
-    render_regression.py 渲染产物像素零差异回归（排查用）
-tests/                 镜像 meshq/ 结构（纯逻辑全覆盖；bpy 与网络用假件隔离）
-```
+根因是两者的"焊接"不是同一个算子：
 
-**依赖方向单向**：`meshq/blender/*` 与 `meshq/stages/*` 都可以 import `meshq/core/*`，反之不行
-（`blender/` 层只在 Blender 内置 Python 里运行）。
+- **Blender**：`mesh.remove_doubles(threshold=1e-4)` —— **邻近合并**（两点距离小于阈值即合并）；
+- **trimesh**：`merge_vertices(digits_vertex=5)` —— **十进制量化后精确去重**（把坐标量化到 1e-5
+  再删重复点），它**不是**邻近合并。
 
-完整流程：**批量生成 → Blender headless 渲染（lookdev 展示场景）→ 双引擎几何指标（bpy 原生 + trimesh 复核）→
-v2 检测管线：一切服务「不应该存在的组件」检出——视觉岛层悬浮检出 + 共位双证据检出 + 面积重叠率分型，
-只检出不删除 → 分析报告（单文件 HTML）+ 交付目录（确定通过 / 确定不通过 / 待人工裁决）+ 本地审核台 +
-离线只读快照。**
+因此**不能用 trimesh 的 digits 去模拟 Blender 的阈值**（实测反例：p18 在 digits=4 下组件数反而
+从 24 变成 29——量化位移导致去重失败）。本项目的处理是**不对齐、只固定口径**：
 
-## 当前检测与交付架构
+- **编号口径统一取 trimesh**：页面上的 `#rank`、明细表面数、逐组件 GLB 文件名、组件独立渲染图全部同源，读者看到的编号与文件一一对应；
+- **Blender 口径的组件数**作为原生产物随模型分发（`blender_checks.json` 的 `n_pieces`），用于对比。
 
-- **检测**：`meshq/stages/detect.py` 是薄编排，检测关节注册在 `meshq/core/detectors.py`，结果统一落
-  `data/findings.jsonl`（契约见 `meshq/core/findings.py`）。两类核心缺陷（悬浮 / 重叠共面）逐条带证据与
-  白话理由，**只检出不删除**；界面贴合（拆件正常形态）计为导出特性度量，不占复核队列。
-- **分析报告**：`meshq/stages/report.py`——检出汇总首屏 + 按缺陷类分组复核表（无 findings 的批次保持 legacy 版式）。
-- **交付**：`meshq/stages/deliver.py` 生成 `results/<日期>/`（确定通过 / 确定不通过 / 待人工裁决，按清单拷贝 +
-  图片按目的分辨率转码）；`meshq/tools/review_server.py` 在线时可页面内裁决，离线为只读快照。
-- **统一入口**：`python -m meshq.pipeline <stage> [--dry-run]`（generate / render / inspect / detect /
-  report / deliver / all；付费段与重渲段不入 all）。
-- **组件定位**（PLAN-07）：`meshq/core/locator.py`（纯逻辑选视角）+ `render_locator_scene`
-  （`meshq/blender/render_one.py` 内出图），逐检出落 `render/locator_<rank>_{model,close}.png` 与
-  `locator.json`，交付层横拼成一张并画标记环。
+### 交付页上每个数字与每张图分别来自哪个引擎
 
-## 离线快照（`publish/`）
-
-`publish/<日期>/` 是可直接分发的**离线只读网页快照**：clone 本仓库后无需任何服务，
-双击 `index.html` 即可阅读全部模型页与图证（裁决控件自动降级为只读）。
-
-```bash
-python -m meshq.stages.deliver --date <日期> --out publish --snapshot
-```
-
-- 只包含页面真正引用的东西：转码后的图、每模型 GLB、判定记录、附录 JSONL、交付说明；
-  不含 `data/raw/` 里的渲染中间件（那部分可由本脚本从 `data/` 重建）。
-- 相对引用 + 无本机绝对路径，故可整目录拷走／压缩分发。
-- 在线裁决在本机运行审核台：`python -m meshq.tools.review_server publish/<日期> --source publish/<日期>/data`
-  （**只靠快照即可裁决**，不需要 `data/`）。
-
-## 结果速览（standard 对照批，21 个模型）
-
-**漏斗：15 直接入库 / 5 修复后入库 / 1 拒绝。成本 405 credits**
-
-| 任务书四问 | 结论 |
+| 页面/产物上的内容 | 来源 |
 |---|---|
-| prompt 怎么选 | 16 个多类别日常物（覆盖硬表面/有机/细柄薄壁/对称形态谱系）+ 4 个悬浮体诱导（热气球/吊灯/举物角色/风铃）。见 `prompts.jsonl` |
-| 评估结论 | standard 档（meshy-7）几何质量高：15/20 单一连通组件、非流形边 0、无退化几何；面数 40 万~175 万。悬浮组件是真实存在的主要缺陷（见下） |
-| 为什么自动检测悬浮组件 | Meshy 官方插件为此专门提供检测+删除 UI（自述参照 Houdini Labs Delete Small）；它是文献公认的头号生成伪影；下游入库对它零容忍；算法全代码可复现 |
-| 效果如何 | 6 个问题模型全部正确识别并分档：5 个删减式修复后入库（保住真部件、删掉碎屑），1 个因双引擎判定冲突转人工（拒绝档）。代表性案例见下 |
+| 结论句"本模型共 N 个组件"、明细表 `#rank` 与面数 | **trimesh**（`pieces/manifest.json` / `findings.jsonl`） |
+| 计数盒：悬浮 / 重叠面 / 非核心 / 贴合界面 | **trimesh**（检出结果） |
+| "问题"列白话、证据旁注（重叠率、间隙比） | **trimesh**（展示层函数据检出数字生成） |
+| 落位（确定通过 / 待人工裁决 / 确定不通过） | **trimesh** 检出 + 人工裁决 |
+| 组件独立渲染图 / 定位图 / 线框三视图 / 干净渲染 | **Blender** 渲染 |
+| 定位图里的三色分隔（含"与邻居重合的那一片"） | **Blender**：逐面"面质心到邻居表面的最近距离 ≤ 容差" |
+| 定位图上的标记环（保证极小件也找得到） | 环的位置来自 **Blender** 投影出的像素框，交付层用 Pillow 画环 |
+| 定位图的观察方向 | `meshq/core/locator.py` 纯投影打分（虚拟环境侧，读 trimesh 载入的三角面） |
+| 每模型附带的 `blender_checks.json` | **Blender** 原生指标（面/顶点、边分类、自交面、退化几何、组件数、归一化） |
+| `meta.json`（prompt、任务、缩略图） | Meshy API 返回 |
 
-### 代表性案例
+## 怎么跑起来
 
-- **p13 章鱼**：触手间 7,108 面悬浮碎片（占总面数 1.34%）→ 检出、红色高亮、删除断开引用，主体无损（530,426→523,318 面）
-- **p18 吊灯**：24 个组件中 4 个碎屑（23,440 面）被删，**20 个垂挂水晶真部件全部保留**——相对阈值（主组件对角线 10%）跨类别免调参的直接证据
-- **p06 球鞋**："一双鞋"两只等大部件（对角线比 0.92）安全通过阈值，仅清除 2 处微碎屑
-- **p12 手柄**：一个 65,848 面的密集部件与主体仅轻微接触——trimesh（1e-5 焊接）判分离、Blender（1e-4）判连通。**双引擎冲突 → 拒绝档转人工**，而非冒险自动删除
+前置：`uv sync` 还原虚拟环境（Python 3.12）。所有命令在**仓库根**执行。
+`uv run …` 与激活后的 `python …` 等价；本机若 `uv run` 报 trampoline 错误，直接用
+`.venv/Scripts/python.exe -m …`（Windows）/ `.venv/bin/python …`（Linux/macOS）。
 
-### 已知边界
+**A · 只想看结果（不需要 Python、不需要数据）**
+双击 `publish/2026-09-22/index.html`。快照自带图证、模型与附录，完全离线；裁决按钮会自动降级为只读。
 
-- 高亮图以 Blender 引擎的检出为准：仅接触式连接（焊接后合流）的部件，Blender 侧不可见，如 p12；空间分离的碎片（主流 floaters 形态）两引擎一致
-- 定位图的整机面板对极小件偏弱（组件可小到模型对角线 0.4%）：标记环保证"找得到"，但环内可能只有几像素；该件的实际形态以**逐组件独立渲染**（三视图隔离渲染）为准
-- 诱导 prompt 不必然诱导成功：p17 热气球、p19 举物角色被生成器整体融合为单一组件（检测器正确输出"无碎片"，与网格事实一致）
-- 碎片面率（面数占比）与尺寸占比是两个维度：p12 的小部件面数占 9.3% 但对角线只占 7.8%，拒绝档用的是面率，偏保守
+**B · 接上数据 + 指定 Blender（一次性准备）**
+
+代码走仓库（clone 或收到的源码目录），数据**不入库**（体积 + 可重建）、随两个 zip 分发：`mesh-data-models.zip`（7 MB，20 个模型的`model.glb` + `meta.json` + 缩略图）与 `mesh-data-analysis.zip`（3 MB，指标、部件特征、检出、视觉岛、台账、`prompts.jsonl`）。每包含一份 `_pack_manifest.json`（逐文件 size + sha256，GLB 另带完整性判定），装载时逐个校验——传输损坏会当场报出来，不会等到分析时才发现模型是坏的。
+
+```bash
+uv sync                                                  # 还原虚拟环境（Python 3.12）
+cp config.example.toml config.toml                       # 补配置（见下）
+python -m meshq.tools.seed_data --unpack <zip 所在目录>   # 解压到位 + 逐文件 sha256/GLB 校验
+python -m meshq.tools.seed_data --check                  # 复检：各阶段输入全 OK 即装载成功
+```
+
+> 包内路径就是**仓库相对路径**（如 `data/raw/<key>/model.glb`），`--unpack` 会把它们放进正确位置，**不要**再手解压到别的层级；参数也可以直接给某个 zip 文件。两个包只含本交付的批次（T2 / smart-topology，20 个模型）：模型按目录键筛、分析产物逐记录裁剪，--list` 可随时看本机现状。
+
+**指定 Blender**：在 `config.toml` 的 `[blender] path` 填**可执行文件全路径**——Windows 例`C:/Program Files/Blender Foundation/Blender 5.0/blender.exe`、macOS 例`/Applications/Blender.app/Contents/MacOS/Blender`、Linux 例 `/opt/blender-5.0.1-linux-x64/blender`。
+官网便携版 zip 解压即用、无需安装；本项目**实测 5.0.1**，4.2+ 预期可用但未实测。路径填错或留空时`render` 会直接报「blender 可执行文件不存在：…（改 config.toml [blender] path）」，不会静默跳过；`seed_data --check` 也会在 render 一行标注"blender 可执行未就位"。`[meshy] api_key` 只有重新生成模型才需要，可留空。**需要 Blender 的只有渲染**——`inspect` / `detect` / `report` / `deliver` 与在线审核全是纯Python。
+
+**C · 重跑渲染图并重建交付页（需要 Blender）**
+
+```bash
+python -m meshq.pipeline render                                  # 全批渲染；幂等，中断后可续跑
+python -m meshq.stages.render --keys p18@smart-topology --target locator   # 只重渲某模型的某图种
+python -m meshq.stages.deliver --date 2026-09-22 --out publish --snapshot  # 用渲好的图重建交付页
+```
+
+图种可单独重跑：`--target overview|highlight|wire|pieces|locator`（**改图必须加 `--force`**）。耗时参考（单机实测）：单模型三通道约 **13 秒**（Blender 启动占大半），检出多的模型更久（p11 有 94 件单件独立渲染 + 94 张定位图）；**全批约 30~60 分钟**。渲染经`blender.exe --background --python meshq/blender/render_one.py` 驱动。
+
+**渲染中间件（`data/raw/*/render`）不在数据包里**——它占了交付目录体积的绝大多数：要看图就按上面重渲一遍，或直接读 `publish/2026-09-22/`（已入库的图证与定位图就是渲染产物）。
+
+> 只想复核分析结论、连渲染也不想跑：`analysis` 包已是跑完的产物，直接 `deliver` 就能重建页面。实测两种情形不同——**在仓库那份快照上重建**（`--out publish`）图不会掉，重建前后逐字节一致；
+> **输出到空目录**则页面文字与结论齐全、但图例会留「—」占位、队列页没有缩略图（不会出现破图）。
+
+**D · 启动项目：本地审核台（有代码 + 快照即可，不需要 `data/`）**
+
+```bash
+python -m meshq.tools.review_server publish/2026-09-22 --source publish/2026-09-22/data
+# 打开 http://127.0.0.1:8000/ → 模型页首屏「入库裁决」三选一
+```
+
+提交后模型目录在 `passed/ pending/ failed/` 之间移动，队列页与模型页自动重渲染（亚秒级）；裁决落在 `--source` 指向的 `review.jsonl`（唯一状态源，人工裁决永不被重跑覆盖）。
+
+要重跑分析与报告（纯 Python，产物都写进 `data/`；任何阶段加 `--dry-run` 先看影响面）：
+
+```bash
+python -m meshq.pipeline inspect                 # 指标 → 部件特征 → 级联
+python -m meshq.pipeline detect                  # → data/findings.jsonl（全批约十几分钟）
+python -m meshq.pipeline report                  # → data/report_t2.html 等
+uv run pytest                                    # 自检（343 条单测：342 通过、1 跳过）
+```
+
+**不加任何数据也能完整阅读这批结果**——模型与渲染图都在 `publish/2026-09-22/` 快照内；连数据包也没有时，可用 Meshy API 按同一批 prompt 重新生成（**付费**，先 `python -m meshq.pipeline generate--dry-run` 看预算再跑）。
+
+## 附：数据来源
+
+| 数字 | 来源 |
+|---|---|
+| 20 件 / 21 任务 / 105 credits（20 件本体 100） | `data/tasks.json`（preset=smart-topology） |
+| 424 条检出的类别分布、共位分型 | `data/findings.jsonl` |
+| 落位 3 / 17 / 0 | `publish/2026-09-22/index.html`（由 `data/findings.jsonl` + `review.jsonl` 计算） |
+| 面数 / 非流形边 / 自交面 / 零面积面 / 零长度边 / 组件数（Blender 口径） | `publish/2026-09-22/<类别>/<key>/blender_checks.json` |
+| 水密 / 绕组一致 / 欧拉数 / 边界边（trimesh 口径） | `data/metrics.jsonl` |
+| 双引擎对照（4.2 表） | 同一 20 件模型的上述两份产物逐件比对 |
+| 抽样复核的图证 | `publish/2026-09-22/<类别>/<key>/images/locator_<rank>.jpg` 与 `crop_<rank>.jpg` |
+| 自交归因、备选问题实测 | 过程材料（不随本仓库分发） |
+
+> `data/` 是工作目录、不入库（可由数据包还原）；其中 `findings.jsonl` 的同源副本随快照分发
+> （在 `publish/2026-09-22/data/` 内），人工裁决状态在每个模型目录的 `review.json` 里。
